@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/FINAL LOGO CRAVE INS green 1.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>.checked { color: gold;}</style>
+    <script>
+        function nextPage() {
+            window.alert("Moves to the next page");
+        }
+        function prevPage() {
+            window.alert("Moves to the prev page");
+        }
+    </script>
+    <title>Restaurant Page</title>
+</head>
+<body>
+    <header>
+        <div id="navBar">
+            <img src="images/brown_logo.png" width="200px" height="170px">
+            <span id="logo">rave ins</span>
+            <a href="home.html">Home</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="about.html">Favorites</a>
+            <a href="profile.html">Profile</a>
+        </div>
+        <div id="banner">
+            <span id="bannerText">Nabi's Kitchen</span>
+            <a href="home.html">
+                <button id="backButton"> << Back</button>
+            </a>      
+        </div>
+    </header>
+    <main>
+        <div id="restaurant">
+            <a href="menu.html">
+                <button id="menu"> Menu</button>
+            </a>  
+            <a href="review.html">
+                <button id="review"> Write a Review</button>
+            </a>  
+            <div id="rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </div>
+            <div id="aboutResto">
+                <h3>About the Restaurant</h3>
+                <span>Nabi’s Kitchen is a hybrid cafeteria that caters to the budget of students 
+                    while ensuring affordable and delicious meals. They offer a wide range of 
+                    food selections including coffee, shakes, set meals, and snacks.</span>
+            </div>
+            <div id="popularPicks">
+                <h3>Popular Picks</h3>
+                <div id="coffee" class="picks">
+                    <a href="coffee.html"><button id="review"> Coffee</button></a> 
+                </div>
+                <div id="pizza" class="picks">
+                    <a href="pizza.html"><button id="review"> Pizza</button></a> 
+                </div>
+                <div id="chicken" class="picks">
+                    <a href="chicken.html"><button id="review"> Chicken</button></a> 
+                </div>
+                <button id="slider" onclick="prevPage()"><-</button>
+                <button id="slider" onclick="nextPage()">-></button>
+            </div>
+        </div>
+        <div id="featuredReviews">
+            <h3>Featured Reviews</h3>
+            <div class="review">
+                “The customer service is superb and I really wanted to go back again the moment I left the place."<br>
+                <img class="reviewPicture" src="images/picture.png" width="30px" height="30px">
+                <span class="reviewName">Niall Horan</span>
+                <span id="review" class="fa fa-star checked"></span>
+                <span id="review" class="fa fa-star checked"></span>
+                <span id="review" class="fa fa-star checked"></span>
+                <span id="review" class="fa fa-star"></span>
+                <span id="review" class="fa fa-star"></span>
+            </div>
+            <div class="review">
+                “Wow what a great place! I was really satisfied with their delicious meals and drinks.”<br>
+                <img class="reviewPicture" src="images/picture.png" width="30px" height="30px">
+                <span class="reviewName">Louis Tomlinson</span>
+                <span id="review" class="fa fa-star checked"></span>
+                <span id="review" class="fa fa-star checked"></span>
+                <span id="review" class="fa fa-star checked"></span>
+                <span id="review" class="fa fa-star"></span>
+                <span id="review" class="fa fa-star"></span>
+            </div>
+            <div class="review">
+                “Wow what a great place! I was really satisfied with their delicious meals and drinks.”<br>
+                <img class="reviewPicture" src="images/picture.png" width="30px" height="30px">
+                <span class="reviewName">Zayn Malik</span>
+                <span id="review" class="fa fa-star checked"></span>
+                <span id="review" class="fa fa-star checked"></span>
+                <span id="review" class="fa fa-star checked"></span>
+                <span id="review" class="fa fa-star"></span>
+                <span id="review" class="fa fa-star"></span>
+            </div>
+            <div class="review">
+                “The customer service is superb and I really wanted to go back again the moment I left the place.”<br>
+                <img class="reviewPicture" src="images/picture.png" width="30px" height="30px">
+                <span class="reviewName">Liam Payne</span>
+                <span id="review" class="fa fa-star checked"></span>
+                <span id="review" class="fa fa-star checked"></span>
+                <span id="review" class="fa fa-star checked"></span>
+                <span id="review" class="fa fa-star"></span>
+                <span id="review" class="fa fa-star"></span>                
+            </div>
+        </div>
+        <div id="details">
+            <h3 id="address">Address</h3>
+            <span>Romyr's Apartment, Hollywood St., Miagao, Iloilo</span>
+            <h3 id="features">Features</h3>
+            <span>Affordable</span><br>
+            <span>Provides Wifi</span><br>
+            <span>Offers Takeout</span><br>
+            <span>Offers Delivery</span><br>
+            <h3 id="openingHours">Opening Hours</h3>
+            <span>Opens (9:00 AM - 9:00 PM)</span><br>
+            <span>Monday-Thursday & Saturday-Sunday</span>
+        </div>
+    </main>
+</body>
+</html>
