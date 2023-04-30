@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/FINAL LOGO CRAVE INS green 1.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            overflow: hidden;
+        }
+        #reviewList{
+            height: 500px; /*change height*/
+            overflow-y: scroll;
+        }
+        .checked { color: gold;}
+        *{
+        margin: 0;
+        padding: 0;
+            }
+        .rate {
+            float: left;
+            height: 46px;
+            padding: 0 10px;
+        }
+        .rate:not(:checked) > input {
+            position:absolute;
+            top:-9999px;
+        }
+        .rate:not(:checked) > label {
+            float:right;
+            width:1em;
+            overflow:hidden;
+            white-space:nowrap;
+            cursor:pointer;
+            font-size:30px;
+            color:#ccc;
+        }
+        .rate:not(:checked) > label:before {
+            content: '★ ';
+        }
+        .rate > input:checked ~ label {
+            color: #ffc700;    
+        }
+        .rate:not(:checked) > label:hover,
+        .rate:not(:checked) > label:hover ~ label {
+            color: #deb217;  
+        }
+        .rate > input:checked + label:hover,
+        .rate > input:checked + label:hover ~ label,
+        .rate > input:checked ~ label:hover,
+        .rate > input:checked ~ label:hover ~ label,
+        .rate > label:hover ~ input:checked ~ label {
+            color: #c59b08;
+        }
+    </style>
+    <title>Review Page</title>
+</head>
+<body>
+    <header>
+        <img id="logoName" class="logo" src="../../images/crave_ins_logo_name2.png" alt="Crave Ins Logo" width="200px">
+        <div class="navbar">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+              <button class="dropbtn">Categories
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#">Cafe</a>
+                <a href="#">Carinderia</a>
+                <a href="#">Restaurant</a>
+                <a href="#">Bakery</a>
+                <a href="#">Pizzeria</a>
+                <a href="#">Snack Haus</a>
+              </div>
+            </div>
+            <a href="about.html">About</a>
+            <a href="favorites.html">Favorites</a>
+            <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+        </div>
+        <div id="banner">
+            <a href="../restaurant.html">
+                <button id="backButton"> << Back</button>
+            </a>      
+        </div>
+    </header>
+    <main>
+        <!-- create two divs side by side -->
+        <div id="review">
+            <div id="reviewForm">
+                <form action="review.php" method="post">
+                    <span> Nabi's Kitchen</span><br>
+                    <div class="rate">
+                        <input type="radio" id="star5" name="rate" value="5" />
+                        <label for="star5" title="text">5 stars</label>
+                        <input type="radio" id="star4" name="rate" value="4" />
+                        <label for="star4" title="text">4 stars</label>
+                        <input type="radio" id="star3" name="rate" value="3" />
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="rate" value="2" />
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="rate" value="1" />
+                        <label for="star1" title="text">1 star</label>
+                    </div>
+                    <span>Select your rating</span><br>
+                    <textarea id="review" name="review" rows="4" cols="50"></textarea><br>
+                    <button type="submit" id="submit" name="submit">Post a Review</button>
+                </form>
+            </div>
+            <div id="reviewList" style="height: 500px; overflow-y: scroll;">
+                <h3>Recent Reviews</h3>
+                <div id="review1">
+                    <div id="reviewContent">
+                        “The customer service is superb and I really wanted to go back again the moment I left the place."<br>
+                    </div>
+                    <div id="reviewer">
+                        <img id="reviewerPic" src="../images/picture.png" alt="Reviewer Picture" width="25px">
+                        <div id="reviewerInfo">
+                            <span id="reviewerName">Niall Horan</span><br>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star"></span>
+                            <span id="review" class="fa fa-star"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="review2">
+                    <div id="reviewContent">
+                        “The customer service is superb and I really wanted to go back again the moment I left the place."<br>
+                    </div>
+                    <div id="reviewer">
+                        <img id="reviewerPic" src="../images/picture.png" alt="Reviewer Picture" width="25px">
+                        <div id="reviewerInfo">
+                            <span id="reviewerName">Niall Horan</span><br>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star"></span>
+                            <span id="review" class="fa fa-star"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="review3">
+                    <div id="reviewContent">
+                        “The customer service is superb and I really wanted to go back again the moment I left the place."<br>
+                    </div>
+                    <div id="reviewer">
+                        <img id="reviewerPic" src="../images/picture.png" alt="Reviewer Picture" width="25px">
+                        <div id="reviewerInfo">
+                            <span id="reviewerName">Niall Horan</span><br>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star"></span>
+                            <span id="review" class="fa fa-star"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="review4">
+                    <div id="reviewContent">
+                        “The customer service is superb and I really wanted to go back again the moment I left the place."<br>
+                    </div>
+                    <div id="reviewer">
+                        <img id="reviewerPic" src="../images/picture.png" alt="Reviewer Picture" width="25px">
+                        <div id="reviewerInfo">
+                            <span id="reviewerName">Niall Horan</span><br>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star"></span>
+                            <span id="review" class="fa fa-star"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="review4">
+                    <div id="reviewContent">
+                        “The customer service is superb and I really wanted to go back again the moment I left the place."<br>
+                    </div>
+                    <div id="reviewer">
+                        <img id="reviewerPic" src="../images/picture.png" alt="Reviewer Picture" width="25px">
+                        <div id="reviewerInfo">
+                            <span id="reviewerName">Niall Horan</span><br>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star"></span>
+                            <span id="review" class="fa fa-star"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="review4">
+                    <div id="reviewContent">
+                        “The customer service is superb and I really wanted to go back again the moment I left the place."<br>
+                    </div>
+                    <div id="reviewer">
+                        <img id="reviewerPic" src="../images/picture.png" alt="Reviewer Picture" width="25px">
+                        <div id="reviewerInfo">
+                            <span id="reviewerName">Niall Horan</span><br>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star"></span>
+                            <span id="review" class="fa fa-star"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="review4">
+                    <div id="reviewContent">
+                        “The customer service is superb and I really wanted to go back again the moment I left the place."<br>
+                    </div>
+                    <div id="reviewer">
+                        <img id="reviewerPic" src="../images/picture.png" alt="Reviewer Picture" width="25px">
+                        <div id="reviewerInfo">
+                            <span id="reviewerName">Niall Horan</span><br>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star"></span>
+                            <span id="review" class="fa fa-star"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="review4">
+                    <div id="reviewContent">
+                        “The customer service is superb and I really wanted to go back again the moment I left the place."<br>
+                    </div>
+                    <div id="reviewer">
+                        <img id="reviewerPic" src="../images/picture.png" alt="Reviewer Picture" width="25px">
+                        <div id="reviewerInfo">
+                            <span id="reviewerName">Niall Horan</span><br>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star checked"></span>
+                            <span id="review" class="fa fa-star"></span>
+                            <span id="review" class="fa fa-star"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
