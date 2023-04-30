@@ -19,16 +19,28 @@
 </head>
 <body>
     <header>
-        <div id="navBar">
-            <img src="images/brown_logo.png" width="200px" height="170px">
-            <span id="logo">rave ins</span>
+        <img id="logoName" class="logo" src="../images/crave_ins_logo_name2.png" alt="Crave Ins Logo" width="200px">
+        <div class="navbar">
             <a href="home.html">Home</a>
-            <a href="categories.html">Categories</a>
+            <div class="dropdown">
+              <button class="dropbtn">Categories
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#">Cafe</a>
+                <a href="#">Carinderia</a>
+                <a href="#">Restaurant</a>
+                <a href="#">Bakery</a>
+                <a href="#">Pizzeria</a>
+                <a href="#">Snack Haus</a>
+              </div>
+            </div>
             <a href="about.html">About</a>
-            <a href="about.html">Favorites</a>
-            <a href="profile.html">Profile</a>
+            <a href="favorites.html">Favorites</a>
+            <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
         </div>
         <div id="banner">
+            <!-- background-image -->
             <span id="bannerText">Nabi's Kitchen</span>
             <a href="home.html">
                 <button id="backButton"> << Back</button>
@@ -37,10 +49,10 @@
     </header>
     <main>
         <div id="restaurant">
-            <a href="menu.html">
+            <a href="./subpages/menu.html">
                 <button id="menu"> Menu</button>
             </a>  
-            <a href="review.html">
+            <a href="./subpages/review.html">
                 <button id="review"> Write a Review</button>
             </a>  
             <div id="rating">
@@ -59,13 +71,16 @@
             <div id="popularPicks">
                 <h3>Popular Picks</h3>
                 <div id="coffee" class="picks">
-                    <a href="coffee.html"><button id="review"> Coffee</button></a> 
+                    <!-- div background-image -->
+                    <a href="coffee.html"><button id="item"> Coffee</button></a> 
                 </div>
                 <div id="pizza" class="picks">
-                    <a href="pizza.html"><button id="review"> Pizza</button></a> 
+                    <!-- div background-image -->
+                    <a href="pizza.html"><button id="item"> Pizza</button></a> 
                 </div>
                 <div id="chicken" class="picks">
-                    <a href="chicken.html"><button id="review"> Chicken</button></a> 
+                    <!-- div background-image -->
+                    <a href="pizza.html"><button id="item"> Pizza</button></a> 
                 </div>
                 <button id="slider" onclick="prevPage()"><-</button>
                 <button id="slider" onclick="nextPage()">-></button>
@@ -73,45 +88,69 @@
         </div>
         <div id="featuredReviews">
             <h3>Featured Reviews</h3>
-            <div class="review">
-                “The customer service is superb and I really wanted to go back again the moment I left the place."<br>
-                <img class="reviewPicture" src="images/picture.png" width="30px" height="30px">
-                <span class="reviewName">Niall Horan</span>
-                <span id="review" class="fa fa-star checked"></span>
-                <span id="review" class="fa fa-star checked"></span>
-                <span id="review" class="fa fa-star checked"></span>
-                <span id="review" class="fa fa-star"></span>
-                <span id="review" class="fa fa-star"></span>
+            <div id="review1">
+                <div id="reviewContent">
+                    “The customer service is superb and I really wanted to go back again the moment I left the place."<br>
+                </div>
+                <div id="reviewer">
+                    <img id="reviewerPic" src="images/picture.png" alt="Reviewer Picture" width="25px">
+                    <div id="reviewerInfo">
+                        <span id="reviewerName">Niall Horan</span><br>
+                        <span id="review" class="fa fa-star checked"></span>
+                        <span id="review" class="fa fa-star checked"></span>
+                        <span id="review" class="fa fa-star checked"></span>
+                        <span id="review" class="fa fa-star"></span>
+                        <span id="review" class="fa fa-star"></span>
+                    </div>
+                </div>
             </div>
-            <div class="review">
-                “Wow what a great place! I was really satisfied with their delicious meals and drinks.”<br>
-                <img class="reviewPicture" src="images/picture.png" width="30px" height="30px">
-                <span class="reviewName">Louis Tomlinson</span>
-                <span id="review" class="fa fa-star checked"></span>
-                <span id="review" class="fa fa-star checked"></span>
-                <span id="review" class="fa fa-star checked"></span>
-                <span id="review" class="fa fa-star"></span>
-                <span id="review" class="fa fa-star"></span>
+            <div id="review2">
+                <div id="reviewContent">
+                    “The customer service is superb and I really wanted to go back again the moment I left the place."<br>
+                </div>
+                <div id="reviewer">
+                    <img id="reviewerPic" src="images/picture.png" alt="Reviewer Picture" width="25px">
+                    <div id="reviewerInfo">
+                        <span id="reviewerName">Niall Horan</span><br>
+                        <span id="review" class="fa fa-star checked"></span>
+                        <span id="review" class="fa fa-star checked"></span>
+                        <span id="review" class="fa fa-star checked"></span>
+                        <span id="review" class="fa fa-star"></span>
+                        <span id="review" class="fa fa-star"></span>
+                    </div>
+                </div>
             </div>
-            <div class="review">
-                “Wow what a great place! I was really satisfied with their delicious meals and drinks.”<br>
-                <img class="reviewPicture" src="images/picture.png" width="30px" height="30px">
-                <span class="reviewName">Zayn Malik</span>
-                <span id="review" class="fa fa-star checked"></span>
-                <span id="review" class="fa fa-star checked"></span>
-                <span id="review" class="fa fa-star checked"></span>
-                <span id="review" class="fa fa-star"></span>
-                <span id="review" class="fa fa-star"></span>
+            <div id="review3">
+                <div id="reviewContent">
+                    “The customer service is superb and I really wanted to go back again the moment I left the place."<br>
+                </div>
+                <div id="reviewer">
+                    <img id="reviewerPic" src="images/picture.png" alt="Reviewer Picture" width="25px">
+                    <div id="reviewerInfo">
+                        <span id="reviewerName">Niall Horan</span><br>
+                        <span id="review" class="fa fa-star checked"></span>
+                        <span id="review" class="fa fa-star checked"></span>
+                        <span id="review" class="fa fa-star checked"></span>
+                        <span id="review" class="fa fa-star"></span>
+                        <span id="review" class="fa fa-star"></span>
+                    </div>
+                </div>
             </div>
-            <div class="review">
-                “The customer service is superb and I really wanted to go back again the moment I left the place.”<br>
-                <img class="reviewPicture" src="images/picture.png" width="30px" height="30px">
-                <span class="reviewName">Liam Payne</span>
-                <span id="review" class="fa fa-star checked"></span>
-                <span id="review" class="fa fa-star checked"></span>
-                <span id="review" class="fa fa-star checked"></span>
-                <span id="review" class="fa fa-star"></span>
-                <span id="review" class="fa fa-star"></span>                
+            <div id="review4">
+                <div id="reviewContent">
+                    “The customer service is superb and I really wanted to go back again the moment I left the place."<br>
+                </div>
+                <div id="reviewer">
+                    <img id="reviewerPic" src="images/picture.png" alt="Reviewer Picture" width="25px">
+                    <div id="reviewerInfo">
+                        <span id="reviewerName">Niall Horan</span><br>
+                        <span id="review" class="fa fa-star checked"></span>
+                        <span id="review" class="fa fa-star checked"></span>
+                        <span id="review" class="fa fa-star checked"></span>
+                        <span id="review" class="fa fa-star"></span>
+                        <span id="review" class="fa fa-star"></span>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="details">
