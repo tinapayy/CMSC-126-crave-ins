@@ -7,14 +7,6 @@
     <link rel="icon" href="./images/FINAL LOGO CRAVE INS green 1.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>.checked { color: gold;}</style>
-    <script>
-        function nextPage() {
-            window.alert("Moves to the next page");
-        }
-        function prevPage() {
-            window.alert("Moves to the prev page");
-        }
-    </script>
     <title>Restaurant Page</title>
 </head>
 <body>
@@ -37,7 +29,7 @@
             </div>
             <a href="about.html">About</a>
             <a href="favorites.html">Favorites</a>
-            <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+            <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
         </div>
         <div id="banner">
             <!-- background-image -->
@@ -64,27 +56,13 @@
             </div>
             <div id="aboutResto">
                 <h3>About the Restaurant</h3>
-                <span>Nabi’s Kitchen is a hybrid cafeteria that caters to the budget of students 
+                <span id="description">Nabi’s Kitchen is a hybrid cafeteria that caters to the budget of students 
                     while ensuring affordable and delicious meals. They offer a wide range of 
                     food selections including coffee, shakes, set meals, and snacks.</span>
             </div>
             <!-- Popular Picks can use the same code from homepage -->
             <div id="popularPicks">
                 <h3>Popular Picks</h3>
-                <div id="coffee" class="picks">
-                    <!-- div background-image -->
-                    <a href="coffee.html"><button id="item"> Coffee</button></a> 
-                </div>
-                <div id="pizza" class="picks">
-                    <!-- div background-image -->
-                    <a href="pizza.html"><button id="item"> Pizza</button></a> 
-                </div>
-                <div id="chicken" class="picks">
-                    <!-- div background-image -->
-                    <a href="pizza.html"><button id="item"> Pizza</button></a> 
-                </div>
-                <button id="slider" onclick="prevPage()"><-</button>
-                <button id="slider" onclick="nextPage()">-></button>
             </div>
         </div>
         <div id="featuredReviews">
