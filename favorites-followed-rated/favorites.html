@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>FAVORITES</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="../images/crave_ins_icon.png">
+	<link rel="stylesheet" type="text/css" href="favorites.css">
+	<link rel="stylesheet" type="text/css" href="../features/navBar.css">
+	<link rel="stylesheet" type="text/css" href="../features/footer.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/51f7eec72a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<img id="logoName" class="logo" src="../images/crave_ins_logo_name_orange.png" alt="Crave Ins Logo">
+	<div class="navbar">
+		<a href="../home/home.html">Home</a>
+		<div class="dropdown">
+		  <button class="dropbtn">Categories
+			<i class="fa fa-caret-down"></i>
+		  </button>
+		  <div class="dropdown-content">
+			<a href="../login-register-restaurant-review-results/Results Page/results.html">Cafe</a>
+			<a href="../login-register-restaurant-review-results/Results Page/results.html">Carinderia</a>
+			<a href="../login-register-restaurant-review-results/Results Page/results.html">Restaurant</a>
+			<a href="../login-register-restaurant-review-results/Results Page/results.html">Bakery</a>
+			<a href="../login-register-restaurant-review-results/Results Page/results.html">Pizzeria</a>
+			<a href="../login-register-restaurant-review-results/Results Page/results.html">Snack Haus</a>
+		  </div>
+		</div>
+		<a href="../about/about.html">About</a>
+		<a href="../favorites-followed-rated/favorites.html">Favorites</a>
+		<a href="../profile/myprofile.html"><i class="fa-solid fa-user"></i> Profile</a>
+	  </div>
+
+	<div class="backBtn">
+		<a title="link" href="../home/home.html"><button id="backButton"> << Back</button></a>
+	</div>
+
+	  <form role="search" id="form">
+			<input type="search" id="query" name="q"
+				placeholder="Search"
+				aria-label="Search through site content">
+			<button class="searchBtn">
+				<i class="fa-solid fa-magnifying-glass"></i>
+			</button>
+		</form>
+	<section>
+		<!-- <div class="swiper mySwiper container"> -->
+		<!-- <div class="swiper-wrapper content"> -->
+
+		<div class= "PAGE"> 
+			<a class= "FOLLOWED" href="followed.html">FOLLOWED RESTAURANTS</a>
+			<a class= "RATED" href="rated.html">RATED RESTAURANTS</a>
+		</div>
+
+		<div class="FOLLOWEDRESTAURANTS"> 
+			<div class="favorites-container1">
+				<div class="card-wrapper swiper-wrapper">
+				<div class="favorites-card">
+					<div class="favorites-RES_1pic">
+						<img id="b&b" class="res1pic" src="Images/favorites1.png" alt="BEANSandBUBBLESpic">
+					</div>
+					<div class="favorites-RES_1"> 
+						<span class="favorites-gendetails" id="foodcard-type">Cafe & Laundry</span>
+						<span class="favorites-gendetails" id="foodcard-loc"> Quezon St, Miagao, Iloilo</span>
+						<span class="favorites-gendetails" id="foodcard-title">Beans & Bubbles</span>
+						<span class="favorites-gendetails" id="foodcard-desc"> Drink coffee while you wait for your laundry. </span>
+						<div class="seemore">
+							<a href="../login-register-restaurant-review-results/Restaurant Page/restaurant.html"><span class="more">See more</span><i class="arrow right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+
+			<div class="favorites-container2">
+				<div class="favorites-card">
+					<div class="favorites-RES_2pic">
+						<img id="nabis" class="res2pic" src="Images/favorites2.png" alt="NABISpic">
+					</div>
+					<div class="favorites-RES_2"> 
+						<span class="favorites-gendetails" id="foodcard-type">Hybrid Cafeteria </span>
+						<span class="favorites-gendetails" id="foodcard-loc">Romyr's Apt.,Miagao,Iloilo</span>
+						<span class="favorites-gendetails" id="foodcard-title">Nabi's Kitchen</span>
+						<span class="favorites-gendetails" id="foodcard-desc">On a budget? We got you! 
+						Have a delicious meal and pair it with some drinks, 
+						and you still won’t feel like your money’s gone with 
+						our affordable menu.</span>
+						<div class="seemore">
+							<a href="../login-register-restaurant-review-results/Restaurant Page/restaurant.html"><span class="more">See more</span><i class="arrow right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="favorites-container3">
+				<div class="favorites-card">
+					<i class="fa-duotone fa-cup-togo"></i>
+					<div class="favorites-RES_3pic">
+						<img id="vnyrd" class="res3pic" src="Images/favorites3.png" alt="VNYRDpic">
+					</div>
+					<div class="favorites-RES_3"> 
+						<span class="favorites-gendetails" id="foodcard-type">Restaurant</span>
+						<span class="favorites-gendetails" id="foodcard-loc"> Mueda St, Miagao, 5023 Iloilo</span>
+						<span class="favorites-gendetails" id="foodcard-title">VNYRD</span><br>
+						<span class="favorites-gendetails" id="foodcard-desc">
+							Tasty meals on a budget.</span>
+						<div class="seemore">
+							<a href="../login-register-restaurant-review-results/Restaurant Page/restaurant.html"><span class="more">See more</span><i class="arrow right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="RATEDRESTAURANTS">
+			<div class="favorites-container2-1">
+				<div class="favorites-card">
+					<i class="fa-duotone fa-cup-togo"></i>
+					<div class="favorites-RES_2-1pic">
+						<img id="SL" class="res2-1pic" src="Images/favorites8.png" alt="SCHOLAR'SLOUNGEpic">
+					</div>
+					<div class="favorites-RES_2-1"> 
+						<span class="favorites-gendetails" id="foodcard-type">Cafe & Workspace</span>
+						<span class="favorites-gendetails" id="foodcard-loc"> Quezon St, Miagao, Iloilo</span>
+						<span class="favorites-gendetails" id="foodcard-title">Scholar’s Lounge</span>
+						<span class="favorites-gendetails" id="foodcard-desc">A mix of snacks, coffee, pizza, and pasta just within your access.</span>
+						<div class="seemore">
+							<span class="more" href="seemore_res2-1.html">See more</span><i class="arrow right"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="favorites-container2-2">
+				<div class="favorites-card">
+					<i class="fa-duotone fa-cup-togo"></i>
+					<div class="favorites-RES_2-2pic">
+						<img id="spharks" class="res2-2pic" src="Images/favorites9.png" alt="SPHARKSpic">
+					</div>
+					<div class="favorites-RES_2-1"> 
+						<span class="favorites-gendetails" id="foodcard-type">Carenderia</span>
+						<span class="favorites-gendetails" id="foodcard-loc"> First Estate Dorm, Miagao, Iloilo</span>
+						<span class="favorites-gendetails" id="foodcard-title">Sphark’s Grill</span>
+						<span class="favorites-gendetails" id="foodcard-desc">Serving you numerous dishes that can surely satisfy your cravings. </span>
+						<div class="seemore">
+							<span class="more" href="seemore_res2-2.html">See more</span><i class="arrow right"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="favorites-container2-3">
+				<div class="favorites-card">
+					<i class="fa-duotone fa-cup-togo"></i>
+					<div class="favorites-RES_2-3pic">
+						<img id="pizza" class="res2-3pic" src="Images/favorites10.png" alt="PIZZERIApic">
+					</div>
+					<div class="favorites-RES_2-3"> 
+						<span class="favorites-gendetails" id="foodcard-type">Pizzeria</span>
+						<span class="favorites-gendetails" id="foodcard-loc"> Miagao, Iloilo</span><br>
+						<span class="favorites-gendetails" id="foodcard-title">Pizzaro</span>
+						<span class="favorites-gendetails" id="foodcard-desc">Bringing you freshly baked goodness in a platter.</span>
+						<div class="seemore">
+							<span class="more" href="seemore_res2-3.html">See more</span><i class="arrow right"></i>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+
+		<!-- <div class="swiper-buttom-next"></div> 
+		<div class="swiper-buttom-prev"></div>
+		<div class="swiper-buttom-pagination"></div> -->
+
+	</section>
+	
+	<!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script>
+		var swiper = new Swiper(".mySwiper",{
+			slidesPerView:3,
+			spaceBetween:30,
+			slidesPerGroup:3,
+			loop:true,
+			loopFillGroupWithBlank:true,
+			pagination:{
+				el:".swiper-pagination",
+				clickable:true,
+			},
+			navigation:{
+				nextEl:".swiper-button-next",
+				prevEl:".swiper.button-prev",
+			},
+		});
+	</script> -->
+	
+	<footer class="fave-footer">
+             <div id="tagline">
+                <span class="tagline">With &nbsp;<span class="crave">crave ins</span><br>your cravings will be satisfied.</span>
+             </div>
+             <div class="footer-details">
+                <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> Miagao, Iloilo</div><br>
+                <div class="email"><i class="fa fa-inbox" aria-hidden="true"></i> KKK@gmail.com</div>
+            </div>
+            <br>
+            <hr>
+            <div class="footbar">
+                <a class="HOME" href="home.html">Home</a>
+                <a class="ABOUT" href="about.html">About</a>
+                <a class="CONTACT" href="about.html">Contact Us</a>
+            </div>
+            <div class="copyright"> 
+                <div class="copyrightdetails"><i class="fa fa-copyright" aria-hidden="true"></i> 2023 KKK Team. All Rights Reserved.</div>
+            </div> 
+     </footer>
+	
+
+</body>
+</html>

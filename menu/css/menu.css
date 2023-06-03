@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+* {
+  font-family: "DM Sans", sans-serif;
+  color: white;
+}
+
+
+
+body {
+    background-image: url("Images/MENUBACKGROUND(1).png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+}
+
+#logoName {
+  position: absolute;
+  top: -41px;
+  z-index: 5;
+  width: 250px;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  margin-right: 30px;
+  
+}
+
+a[href="home.html"]{
+  background-color:#91972A; 
+  border-radius: 25px;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #613002;
+  display: flex;
+  justify-content: right;
+  box-shadow: 0px 5px 10px rgb(39, 26, 0);
+  padding: 10px;
+  margin-top: -10px;
+  margin-left: -13px;
+  width: 100%;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: right;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-family: "DM Sans", sans-serif;
+  padding: 14px 20px;
+}
+
+/* The dropdown container */
+.dropdown {
+  overflow:hidden;
+  float: right;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  width: 150px;
+  padding: 4px 0px;
+  margin-right: 15px;
+  margin-left: 15px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  background-color: inherit;
+  font-family:  "DM Sans", sans-serif; 
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #91972A;
+  border-radius: 25px;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 20px;
+  margin-top: 5px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: rgb(237, 117, 4);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "DM Sans", sans-serif;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+form {
+  background-color: #fdfdfd;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  width: 400px;
+  height: 50px;
+  right:200px;
+  top: 90px;
+
+  background: #FBF9F9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  z-index:2;
+}
+
+input {
+  all: unset;
+  font-size: 25px;
+  color: #6b6b6b;
+  height: 100%;
+  width: 100%;
+  font-weight: 500;
+  padding: 15px 20px;
+  font-family: "DM Sans", sans-serif;
+  z-index:2;
+}
+
+::placeholder {
+  color: #6c6c6c;
+  opacity: 0.7; 
+}
+
+.fa-magnifying-glass{
+  color: rgb(233, 97, 0);
+  font-size: 30px;
+  z-index:2;
+}
+
+.bannerpic{
+  position:absolute;
+  top:70px;
+  left:0px;
+  width:100%;
+  height:300px;
+}
+
+#backButton{
+  position: absolute;
+  width: 100px;
+  height: 43px;
+  right:50px;
+  top: 90px;
+  background-color: #0F2C0A;
+  border-radius: 30px;
+  padding: 2px 2px;
+  z-index: 2;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+.dropdown-content2 {
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 304px;
+  z-index: 1;
+  max-height: 200px;
+  overflow-y:scroll;
+}
+
+.forScroll {
+  display: none;
+  background-color: #f9f9f9;
+  border-radius: 25px;
+  padding: 20px;
+  width: 304px;
+  height: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content2 a {
+  color: rgb(18, 99, 0);
+  font-size: 20px;
+  padding: 12px 20px 12px 0px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content2 a:hover {background-color: #f1f1f1; width:260px;}
+
+.dropdown2:hover .forScroll{
+  display: block;
+}
+
+.dropdown2:hover .dropbtn2 {
+  background-color: #7dc402;
+}
+
+.popularPicks{
+  position:absolute;
+  top:400px;
+  left:50px;
+  font-size:30px;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 1120px;
+  width: 100%;
+  padding: 40px 0;
+  position: absolute;
+  top: 450px;
+  left: 50px;
+  z-index: -1;
+}
+.slide-container {
+  margin: 0px 40px;  
+  padding: 20px 10px;
+  overflow: hidden;
+}
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 5px 5px 8px black;
+}
+
+.card:hover{
+  background: #ffebb0;
+  transition: 0.4s;
+}
+
+.card .image-box {
+  height: 200px;
+}
+.card .image-box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+}
+.card .card-details {
+
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  padding: 15px;
+}
+
+.card-details .name {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #91972A;
+  margin: 0;
+
+}
+.card-details .more {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #4d4d4d;
+
+}
+
+.card-details .moreLink{
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #2e2e2e;
+  text-decoration-line: none;
+}
+
+.card-details .moreLink:hover{
+  color: #3b9b00;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.card-details .fa-solid{
+  color:#91972A;
+}
+
+.swiper-navBtn {
+  color: #ffffff;
+  height: 40px;
+  width: 40px;
+  background: #FFAB2D;
+  border-radius: 50%;
+  position: absolute;
+  margin-right: -8px;
+  margin-left: -8px;
+  box-shadow: 1px 2px 5px black;
+  z-index: 10;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.swiper-pagination-bullet {
+  background-color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-navBtn {
+    display: none;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(234, 144, 0); 
+  border-radius: 10px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #538601; 
+}
+
+.menupage{
+  position:absolute;
+  top:400px;
+  right:300px;
+  font-size:30px;
+  font-weight: bold;
+  color:black;
+}
+
+
+
+.food-container{
+  display:flex;
+}
+
+.fullMenu-container{
+  position:relative;
+  top: 20px;
+  width:500px;
+  height:30px;
+  background-color:#fff;
+}
+
+.fullMenu-container .food-container{
+  width:100%;
+  background:#fff;
+}
+
+.fullMenu-container .food-container .pic{
+  position:relative;
+  height:300px;
+  width:400px;
+}
+
+.fullMenu-container .food-container .pic img{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100px;
+  height:100px;
+  object-fit:cover;
+}
+
+
+
+
+

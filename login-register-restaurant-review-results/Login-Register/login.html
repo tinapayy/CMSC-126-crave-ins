@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>craveins - login</title>
+        <link rel="icon" href="images/FINAL LOGO CRAVE INS green 1.png" type="image/x-icon">
+        <link rel="stylesheet" href="style.css">
+        <script>  
+            function google(){  
+                alert("Sign in with Google");  
+            }  
+            function forgot_password(){  
+                alert("Forgot Password");  
+            } 
+        </script> 
+    </head>
+    <body>
+        <div class="container">
+
+            <div class="left-banner">
+                <img src="images/IMAGE.png" alt="left-banner">
+            </div>
+
+            <div class="form-container">  
+
+                <div class="logo-container">
+                    <img src="images/FINAL LOGO CRAVE INS green 1.png" alt="logo">
+                    <h1 class="logo">raveins.</h1>
+                </div>  
+
+                <h2 class="welcome">Welcome back!</h2>
+
+                <div class="line">
+                    <span class="line-text">
+                      Log In with your Email
+                    </span>
+                </div>
+
+                <form>
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Insert your email"><br>
+                  
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Insert your password"><br>
+
+                    <input type="checkbox" id="keep" name="keep">
+                    <label for="keep">Keep me logged in</label>
+                    <a id="forgot-password" onclick="forgot_password()">Forgot Password?</a><br>
+                    <input type="submit" name="submit" value="Log in"><a href="../home/home.html"></a><br>
+
+                    <h6 class="login">Don't have an account?</h6>
+                    <a href="register.html">Register</a>
+
+                    <h2 class="tagline-login">"A place that can satisfy your cravings"</h2>
+                </form>
+
+                <a href="../home/home.html">
+                    <button class="guest-login"><< Go back as Guest</button>
+                </a>
+
+            </div> 
+
+            <div class="right-banner">
+                <img src="images/Rectangle 3.png" alt="right-banner">
+            </div>
+        </div>
+    </body>
+    <script src="js/register-login.js"></script>
+</html>
