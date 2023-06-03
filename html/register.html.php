@@ -31,10 +31,10 @@
                 </div>
 
                 <form method="POST" action='../php/register.php'>
-                    <label for="email">Email Address:</label>
+                    <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" placeholder="Insert your email" required><br>
                   
-                    <label for="password">Password:</label>
+                    <label for="password">Password</label>
                     <input type="password" id="password" name="password" placeholder="Insert your password" required><br>
 
                     <input type="submit" name="submit" value="Sign up"><br> 

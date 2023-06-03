@@ -34,10 +34,10 @@
                 </div>
 
                 <form method="POST" action='../php/login.php'>
-                    <label for="email">Email Address:</label>
+                    <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" placeholder="Insert your email"><br>
                   
-                    <label for="password">Password:</label>
+                    <label for="password">Password</label>
                     <input type="password" id="password" name="password" placeholder="Insert your password"><br>
 
                     <input type="checkbox" id="keep" name="keep">
