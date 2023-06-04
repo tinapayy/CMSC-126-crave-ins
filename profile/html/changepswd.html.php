@@ -52,7 +52,27 @@
                 <label class="label" for="file">
                     <span>Change Image</span>
                 </label>
-                <input id="file" type="file" onchange="loadFile(event)"/>
+                <form action='' method='POST' enctype='multipart/form-data'>
+                    <input id="file" type='file' name='userFile' onchange="loadFile(event)"><br>
+                    <img id="output" src="" alt="Profile Picture" /><br>
+                    <input id="upload-btn" type='submit' name='upload_btn' value=''>
+                    <label for="upload-btn"><i class="fas fa-camera"></i></label>
+                </form>
+
+                <?php
+                if (isset($_FILES['userFile'])) {
+                    $target_Path = "../images/profile/";
+                    $target_Path = $target_Path . basename($_FILES['userFile']['name']);
+                    move_uploaded_file($_FILES['userFile']['tmp_name'], $target_Path);
+                    $uploadedFilePath = $target_Path; // Store the uploaded file path
+
+                    include '../php/DBConnector.php';
+                    $sql = "UPDATE users SET profpic='$uploadedFilePath' WHERE email_address='$email'";
+                    $result = $conn->query($sql);
+
+                    echo "<script type='text/javascript'>alert('Image Uploaded!');</script>";
+                }
+                ?>
             </div>
             <h1 id="profile-name"></h1>
             <div class = "profile-nav-btn">
@@ -86,7 +106,7 @@
                         <label for="lname">Confirm New Password*</label><br>
                         <input class="profile-input" type="password" name="confirm-password" id="confirm-password" required></span><br><br>
                     </div>
-                    <p class="profile-sub" id="profile-subtitle2">*Required Fields</p>
+                    <p class="profile-sub" id="profile-subtitle2">*Can be updated</p>
                     </div>
                 <div class = "changepswd-update-btn">
                     <button type="submit" id="update-btn" name="change_password" onclick="updatePassword()">Update</button><br>

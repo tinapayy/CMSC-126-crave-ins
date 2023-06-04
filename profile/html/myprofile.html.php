@@ -101,14 +101,14 @@
                         <span><input class="profile-input" type="text" name="fname" id="fname" value="<?php echo $fname; ?>" required></span><br><br>
                     </div>
                     <div class="profile-input-box">
-                        <label for="email">Email Address*</label><br>
+                        <label for="email">Email Address</label><br>
                         <span><input class="profile-input" type="email" name="email" id="email" value="<?php echo $email; ?>" readonly required></span><br><br>
                     </div>
                     <div class="profile-input-box">
                         <label for="phone-num">Phone Number*</label><br>
                         <span><input class="profile-input" type="number" name="phone-num" id="phone-num" value="<?php echo $phone; ?>" required></span><br><br>
                     </div>
-                    <p class="profile-sub" id="profile-subtitle2">*Required Fields</p>
+                    <p class="profile-sub" id="profile-subtitle2">*Can be updated</p>
                     </div>
                     <div class="profile-form-inputs2">
                     <div class = "profile-input-box">
