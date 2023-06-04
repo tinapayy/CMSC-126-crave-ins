@@ -20,7 +20,9 @@ a[href="../profile/myprofile.html"]{
     background: rgba(145, 151, 42, 0.5);
     box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.62);
     border-radius: 61px;
+    z-index: -1;
 }
+
 
 .changepswd-container{
     position: absolute;
@@ -183,7 +185,7 @@ input[type="date"]{
     font-size: 20px;
     text-align: center;
     color: #256A19;
-    z-index: 1;
+    z-index: 0;
 }
 
 .fa-camera {
