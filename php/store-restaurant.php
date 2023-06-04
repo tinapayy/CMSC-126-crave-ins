@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-if (isset($_POST['restaurantName'])) {
-    $restaurantName = $_POST['restaurantName'];
-    $_SESSION['restaurantName'] = $restaurantName;
-    echo 'Restaurant name stored in session.';
+if (isset($_POST['restaurantID'])) {
+    $restaurantName = $_POST['restaurantID'];
+    $_SESSION['restaurantID'] = $restaurantName;
+    echo 'Restaurant ID stored in session.';
 } else {
-    echo 'Restaurant name not provided.';
+    echo 'Restaurant ID not provided.';
 }
 ?>

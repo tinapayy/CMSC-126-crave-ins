@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    // Check if the user is logged in by checking the existence of the session variable
+    if (isset($_SESSION['email'])) {
+        // User is logged in
+        $email = $_SESSION['email'];
+    } else {
+        // User is not logged in
+        header("Location: login.html.php");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,43 +42,50 @@
                 <a href="#">Snack Haus</a>
               </div>
             </div>
-            <a href="about.html">About</a>
-            <a href="favorites.html">Favorites</a>
-            <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+            <a href="../html/about.html.php">About</a>
+            <a href="../html/favorites.html.php">Favorites</a>
+            <a href="../html/myprofile.html.php"><i class="fa-solid fa-user"></i> Profile</a>
         </div>
-        <a href="home.html"><button id="backButton"> << Back</button></a>
-        
+        <a href="home.html.php"><button id="backButton"> << Back</button></a>
+        <a href="home-no-profile.html.php"><button id="logout-btn">Log out</button></a>
         <div class="profile-pic-container">
             <div class="profile-pic">
                 <label class="label" for="file">
                     <span>Change Image</span>
                 </label>
-                <input id="file" type="file" onchange="loadFile(event)"/>
-                <img src="../images/profile3.jpg" id="output"/>
+                <form action='' method='POST' enctype='multipart/form-data'>
+                    <input id="file" type='file' name='userFile' onchange="loadFile(event)"><br>
+                    <img id="output" src="" alt="Profile Picture" /><br>
+                    <input id="upload-btn" type='submit' name='upload_btn' value=''>
+                    <label for="upload-btn"><i class="fas fa-camera"></i></label>
+                </form>
+
+                <?php
+                if (isset($_FILES['userFile'])) {
+                    $target_Path = "../images/profile/";
+                    $target_Path = $target_Path . basename($_FILES['userFile']['name']);
+                    move_uploaded_file($_FILES['userFile']['tmp_name'], $target_Path);
+                    $uploadedFilePath = $target_Path; // Store the uploaded file path
+
+                    include '../php/DBConnector.php';
+                    $sql = "UPDATE users SET profpic='$uploadedFilePath' WHERE email_address='$email'";
+                    $result = $conn->query($sql);
+
+                    echo "<script type='text/javascript'>alert('Image Uploaded!');</script>";
+                }
+                ?>
             </div>
-            <h1 id="profile-name" value="''">Harry Styles</h1>
+            <h1 id="profile-name"></h1>
             <div class = "profile-nav-btn">
-                <h3  id="personal-btn"><a class="profile-navv" title="current" href="myprofile.html">Personal Information</a></h3><br>
-                <h3  id="change-pswd-btn"><a class="profile-navv" href="changepswd.html">Change Password</a></h3><br>
+                <h3  id="personal-btn"><a class="profile-navv" title="current" href="myprofile.html.php">Personal Information</a></h3><br>
+                <h3  id="change-pswd-btn"><a class="profile-navv" href="changepswd.html.php">Change Password</a></h3><br>
             </div>
         </div>
 
         <div class="profile-container">
                 <span id="profile-title">My Profile</span><hr>
                 <p class="profile-sub" id="profile-subtitle1">Manage my personal information.</p>
-                <?php
-                    session_start();
-
-                    // Check if the user is logged in by checking the existence of the session variable
-                    if (isset($_SESSION['email'])) {
-                        // User is logged in
-                        $email = $_SESSION['email'];
-                    } else {
-                        // User is not logged in
-                        header("Location: login.html.php");
-                        exit();
-                    }
-                ?>
+            <form action="../php/profile.php" method="POST">
                 <?php
                     include '../php/DBConnector.php';
                     $sql = "SELECT * FROM users WHERE email_address='$email'";
@@ -75,7 +95,6 @@
                     $lname = $row['lastname'];
                     $phone = $row['phone_number'];
                 ?>
-            <form action="../php/profile.php" method="POST">
                 <div class = "profile-form-inputs1">
                     <div class = "profile-input-box">
                         <label for="fname">First Name*</label><br>
@@ -83,7 +102,7 @@
                     </div>
                     <div class="profile-input-box">
                         <label for="email">Email Address*</label><br>
-                        <span><input class="profile-input" type="email" name="email" id="email" value="<?php echo $email; ?>" required></span><br><br>
+                        <span><input class="profile-input" type="email" name="email" id="email" value="<?php echo $email; ?>" readonly required></span><br><br>
                     </div>
                     <div class="profile-input-box">
                         <label for="phone-num">Phone Number*</label><br>
@@ -114,10 +133,11 @@
                     </div>
                     </div>
                 <div class = "profile-update-btn">
-                    <button type="submit" id="update-btn" name="update">Update</button><br>
+                    <button type="submit" id="update-btn" name="update" onclick="updateProfile()">Update</button><br>
                 </div>
             </div>
             </form>
 
     <script src="../js/myprofile.js"></script>
+    <script>document.getElementById("profile-name").innerHTML = "<?php echo $fname . ' '  . $lname; ?>";</script>
 </body>

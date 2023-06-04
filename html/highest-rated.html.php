@@ -30,7 +30,7 @@
                 </div>
                 <a href="../html/about.html.php">About</a>
                 <a href="../html/favorites.html.php">Favorites</a>
-                <a href="../html/myprofile.html.php"><i class="fa fa-user"></i> Profile</a>
+                <a href="../html/profile.html.php"><i class="fa fa-user"></i> Profile</a>
             </div>
                 <a href="../html/home.html.php">
                     <button id="backButton" onclick="history.back()"> << Back</button>
@@ -58,10 +58,10 @@
                 <hr>
                 <div id="filter-links">
                     <a href="../html/recommended.html.php">
-                        <button class="filter-button"> Recommended</button>
+                        <button class="filter-button" > Recommended</button>
                     </a>
                     <a href="../html/highest-rated.html.php">
-                        <button class="filter-button"> Highest Rated</button>
+                        <button class="filter-button" style="background-color: #A66500;"> Highest Rated</button>
                     </a>
                     <a href="../html/most-reviewed.html.php">
                         <button class="filter-button"> Most Reviewed</button>
@@ -72,22 +72,9 @@
             <div id="results-container"> 
                 <!-- create a search button with a heading text beside it -->
                 <div id="search-container">
-                    <span id="subtext">Results for </span><br> <span id="query"></span>
-                    <?php
-                    if(isset($_GET['home-search'])) {
-                        $query = $_GET['home-search'];
-                        $landmark = $_GET['landmark'];
-                        $query = $query . '' . $landmark;  
-                    } else if(isset($_GET['category'])){
-                        $query = $_GET['category'];
-                    }  else if(isset($_GET['tags'])){
-                        $query = $_GET['tags'];
-                    } else if(isset($_GET['rating'])) {
-                        $query = $_GET['home-search'];
-                    }
-                    ?>
+                    <span id="subtext">Highest Rated </span><br> <span id="query"></span>
                     <form id="search-form" onsubmit="searchData(event)">
-                        <input type="text" id="search-query" name="search" placeholder="Search" value="<?php echo $query ?>">
+                        <input type="text" id="search-query" name="search" placeholder="Search">
                         <button type="submit" id="search-button"><i class="fa fa-search"></i></button>
                     </form>
 
@@ -106,15 +93,14 @@
             <br>
             <hr id="footer-hr">
             <div class="footbar">
-                <a class="HOME" href="../html/home.html">Home</a>
-                <a class="ABOUT" href="../html/about.html">About</a>
-                <a class="CONTACT" href="../html/about.html">Contact Us</a>
+                <a class="HOME" href="../html/home.html.php">Home</a>
+                <a class="ABOUT" href="../html/about.html.php">About</a>
+                <a class="CONTACT" href="../html/about.html.php">Contact Us</a>
             </div>
             <div class="copyright"> 
                 <div class="copyrightdetails"><i class="fa fa-copyright" aria-hidden="true"></i> 2023 KKK Team. All Rights Reserved.</div>
             </div> 
         </footer>
     </body>
-    <script src="../js/results.js"></script>
-
+    <script src="../js/highest_rated.js"></script>
 </html>

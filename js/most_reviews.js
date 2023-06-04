@@ -1,14 +1,9 @@
 window.onload = function() {
-    searchData();
+    revieww();
 };
-function searchData() {
-    event.preventDefault(); // Prevent form submission
-    var searchQuery = document.getElementById('search-query').value;
-    var ratingFilter = document.querySelector('input[name="rate"]:checked');
-    var ratingValue = ratingFilter ? ratingFilter.value : ""; // Get the selected rating value
-
+function revieww() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '../php/search.php?query=' + encodeURIComponent(searchQuery) + '&rating=' + ratingValue, true);
+    xhr.open('GET', '../php/most_review.php', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -21,6 +16,31 @@ function searchData() {
     xhr.send();
 }
 
+function searchData() {
+    event.preventDefault(); // Prevent form submission
+    var searchQuery = document.getElementById('search-query').value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '../php/search.php?query=' + encodeURIComponent(searchQuery), true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+            displayData(data);
+        } else if (xhr.readyState === 4) {
+            console.log('Error: ' + xhr.status);
+        }
+    };
+    xhr.send();
+}
+
+
+// Function to get the selected landmark from the dropdown
+function getSelectedLandmark() {
+    var dropdown = document.getElementById('dropdown-choice');
+    var selectedLandmark = dropdown.options[dropdown.selectedIndex].value;
+    return selectedLandmark;
+}
 
 function displayData(data) {
     // Clear the previous search results

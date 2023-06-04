@@ -1,48 +1,32 @@
-function searchData() {
-    event.preventDefault(); // Prevent form submission
-    var searchQuery = document.getElementById('email').value;
+window.addEventListener('DOMContentLoaded', (event) => {
+  var output = document.getElementById('output');
 
-    $.ajax({
-        url: '../php/profile.php',
-        type: 'GET',
-        data: { query: searchQuery },
-        dataType: 'json',
-        success: function(data) {
-            displayData(data);
-        },
-        error: function(error) {
-            console.log(error);
+  // Make an AJAX request to retrieve the image path from the database
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        var uploadedFilePath = xhr.responseText;
+
+        if (uploadedFilePath !== "") {
+          output.src = uploadedFilePath;
         }
-    });
-}
+      } else {
+        console.error('Error: ' + xhr.status);
+      }
+    }
+  };
+  xhr.open('GET', '../php/get_image_path.php', true); 
+  xhr.send();
+});
 
 var loadFile = function (event) {
     var image = document.getElementById("output");
     image.src = URL.createObjectURL(event.target.files[0]);
 };
 
-
-
-// Get the input fields and the profile name
-const fnameInput = document.getElementById('fname');
-const lnameInput = document.getElementById('lname');
-const profileName = document.getElementById('profile-name');
-
-// Set the default value of the profile name
-let storedFname = localStorage.getItem('fname');
-let storedLname = localStorage.getItem('lname');
-if (storedFname && storedLname) {
-    profileName.innerText = `${storedFname} ${storedLname}`;
-}
-
-function updateProfileName() {
-    const fname = fnameInput.value;
-    const lname = lnameInput.value;
-    profileName.innerText = `${fname} ${lname}`;
-
-    // Store the updated values in localStorage
-    localStorage.setItem('fname', fname);
-    localStorage.setItem('lname', lname);
+function updateProfile(){
+    alert("Profile Updated!");
 }
 
 function updatePassword(){
