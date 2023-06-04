@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      background-color: saddlebrown;
+    }
+
+    #card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .card {
+      width: 340px;
+      border-radius: 10px;
+      display: flex;
+      margin:10px;
+      flex-direction: column;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 5px 5px 10px rgba(16, 24, 40, 0.8);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 5px;
+      justify-content: center;
+    }
+
+    .card-details {
+        margin: 15px;
+        flex: 1;
+    }
+
+    .foodcard-loc{
+        font-size: smaller;
+        float:right;
+    }
+
+    .card-details h2 {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    .card-details p {
+      margin: 0;
+    }
+
+    .card-description {
+    margin-top: 5px;
+    color: #5F6D7E;
+    font-size: 13px;
+    }
+
+    .see-more-link {
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .follow-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .foodcard-type{
+        color:#256A19;
+        background-color: #d9ffcd;
+        display: inline;
+        font-size: smaller;
+        font-weight: 700;
+        border-radius: 10px;
+        padding: 2px 10px;
+    }
+    
+    .foodcard-title{
+        display: inline-block;
+        padding-top: 20px;
+    }
+
+    .see-more {
+        color:#256A19;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .fa-angle-right {
+        color:#256A19;
+        position: relative;
+        top: 0.8%;
+    }
+  </style>
+</head>
+<body>
+  <button id="follow-btn" class="follow-btn">Follow</button>
+  <div id="card-container"></div>
+
+  <script>
+    var followBtn = document.getElementById("follow-btn");
+    var cardContainer = document.getElementById("card-container");
+    var cardCount = 0;
+
+    followBtn.addEventListener("click", function() {
+      cardCount++;
+      createCard();
+    });
+
+    function createCard() {
+      var card = document.createElement("div");
+      card.className = "card";
+
+      var img = document.createElement("img");
+      img.src = "Images/favorites1.png"; // Replace with the actual image URL
+      card.appendChild(img);
+
+      var cardDetails = document.createElement("div");
+      cardDetails.className = "card-details";
+
+      
+      var category = document.createElement("p");
+      category.textContent = "Restaurant Category";
+      category.className = "foodcard-type";
+      cardDetails.appendChild(category);
+      
+      var address = document.createElement("p");
+      address.textContent = "Hollywood St., Miagao";
+      address.className = "foodcard-loc";
+      cardDetails.appendChild(address);
+
+      var name = document.createElement("h2");
+      name.textContent = "Restaurant Name";
+      name.className = "foodcard-title";
+      cardDetails.appendChild(name);
+
+
+      var description = document.createElement("p");
+      description.innerHTML =  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel tortor sed neque blandit rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae."; 
+      description.className = "card-description";
+      cardDetails.appendChild(description);
+
+    const seeMore = document.createElement('a');
+    seeMore.classList.add('see-more');
+    seeMore.setAttribute('href', '../php/restaurant.php');
+    seeMore.innerHTML = '<br> See more <i class="fas fa-angle-right"></i>';
+
+    // Add a click event handler to the "See more" link
+    seeMore.addEventListener('click', function() {
+        // Save the restaurant name in a session variable
+        var restaurantName = name;
+        
+        // Send the restaurantName to the server using AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '../php/store-restaurant.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log('Restaurant name stored in session.');
+                // Redirect to the restaurant.php page
+                window.location.href = seeMore.getAttribute('href');
+            }
+        };
+        xhr.send('restaurantName=' + encodeURIComponent(restaurantName));
+    });
+    cardDetails.appendChild(seeMore);
+
+
+      card.appendChild(cardDetails);
+
+      cardContainer.appendChild(card);
+      followBtn.innerHTML = "Follow (" + cardCount + ")";
+    }
+  </script>
+</body>
+</html>
