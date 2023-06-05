@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['email'])){
+        header("Location: ../html/login.html.php");
+    } else {
+        $email = $_SESSION['email'];
+        $restaurantID = $_SESSION['restaurantID'];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -57,9 +67,6 @@
                 </form>
                 <?php
                     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                        session_start();
-                        $email = $_SESSION['email'];
-                        $restaurantID = $_SESSION['restaurantID'];
                         $rating = $_POST['rate'];
                         $review = $_POST['review'];
 
@@ -80,7 +87,7 @@
                 <span class="sub-title">Below are the reviews of other people for this place. Check it out!</span>
                 <div id="reviewList">
                     <?php 
-                        session_start();
+                    if(isset($_SESSION['restaurantID'])) {
                         $restaurantID = $_SESSION['restaurantID'];
                         $connect = mysqli_connect("localhost", "root", "", "craveins_db");
                     
@@ -100,6 +107,7 @@
                         } else {
                             echo '<script>console.log(array());</script>';
                         }
+                    }                        
                     ?>
                 </div>    
             </div>    
