@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>craveins - register</title>
-        <link rel="icon" href="../images/FINAL LOGO CRAVE INS green 1.png" type="image/x-icon">
+        <link rel="icon" type="image/png" sizes="32x32" href="../images/crave ins icon.png">
         <link rel="stylesheet" href="../css/login-register.css">
         <script>  
             function google(){  

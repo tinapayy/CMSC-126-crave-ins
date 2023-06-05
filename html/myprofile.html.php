@@ -9,6 +9,15 @@
         header("Location: login.html.php");
         exit();
     }
+
+    // Logout operation
+    if (isset($_POST['logout'])) {
+        // Unset the session variable
+        unset($_SESSION['email']);
+        // Redirect to the login page
+        header("Location: login.html.php");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +56,7 @@
             <a href="../html/myprofile.html.php"><i class="fa-solid fa-user"></i> Profile</a>
         </div>
         <a href="home.html.php"><button id="backButton"> << Back</button></a>
-        <a href="home-no-profile.html.php"><button id="logout-btn">Log out</button></a>
+        <a href="../html/login.html.php"><button id="logout-btn" name="logout">Log out</button></a>
         <div class="profile-pic-container">
             <div class="profile-pic">
                 <label class="label" for="file">

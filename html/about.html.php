@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/about.css">
 	<link rel="stylesheet" type="text/css" href="../css/navBar.css">
 	<link rel="stylesheet" type="text/css" href="../css/footer.css">
-	<link rel="icon" type="image/png" sizes="32x32" href="./images/crave_ins_icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../images/crave ins icon.png">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://kit.fontawesome.com/51f7eec72a.js" crossorigin="anonymous"></script>
 </head>

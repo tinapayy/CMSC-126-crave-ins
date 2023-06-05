@@ -99,7 +99,7 @@ function displayData(data) {
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
-                    console.log('Restaurant name stored in session.');
+                    console.log('Restaurant id stored in session.');
                     // Redirect to the restaurant.php page
                     window.location.href = seeMore.getAttribute('href');
                 }

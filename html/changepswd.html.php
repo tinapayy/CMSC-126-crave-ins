@@ -1,9 +1,16 @@
 <?php
+    include '../php/DBConnector.php';
     session_start();
     // Check if the user is logged in by checking the existence of the session variable
     if (isset($_SESSION['email'])) {
         // User is logged in
         $email = $_SESSION['email'];
+
+        $sql = "SELECT * FROM users WHERE email_address='$email'";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $profpic = $row['profpic'];
+        $password = $row['password'];
     } else {
         // User is not logged in
         header("Location: login.html.php");
@@ -16,7 +23,7 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Crave Ins</title>
-	<link rel="icon" type="image/png" sizes="32x32" href="../imgs/crave ins icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../images/crave ins icon.png">
 	<link rel="stylesheet" type="text/css" href="../css/navBar.css">
     <link rel="stylesheet" type="text/css" href="../css/myprofile.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -49,10 +56,7 @@
         
         <div class="profile-pic-container">
             <div class="profile-pic">
-                <label class="label" for="file">
-                    <span>Change Image</span>
-                </label>
-                <input id="file" type="file" onchange="loadFile(event)"/>
+                <img id="output" src="<?php $profpic ?>" alt="Profile Picture" /><br>
             </div>
             <h1 id="profile-name"></h1>
             <div class = "profile-nav-btn">
@@ -65,18 +69,10 @@
                 <span id="profile-title">Change Password</span><hr>
 
             <form action="../php/change_password.php" method="POST">
-                <?php
-                    include '../php/DBConnector.php';
-                    $sql = "SELECT * FROM users WHERE email_address='$email'";
-                    $result = $conn->query($sql);
-                    $row = $result->fetch_assoc();
-                    $fname = $row['name'];
-                    $lname = $row['lastname'];
-                ?>
                 <div class = "profile-form-inputs1">
                     <div class = "profile-input-box">
                         <label for="fname">Old Password*</label><br>
-                        <span><input class="profile-input" type="password" name="old-password" id="old-password" required></span><br><br>
+                        <span><input class="profile-input" type="password" name="old-password" id="old-password" value="<?php echo $password ?>" required></span><br><br>
                     </div>
                     <div class="profile-input-box">
                         <label for="email">New Password*</label><br>

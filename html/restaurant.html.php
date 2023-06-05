@@ -2,6 +2,10 @@
   session_start();
   if (isset($_SESSION['restaurantID'])) {
       $restaurantID = $_SESSION['restaurantID'];
+      if (isset($_SESSION['email'])) {
+        // User is logged in
+        $email = $_SESSION['email'];
+    }
   } else {
       echo "Restaurant ID is not set.";
   }
@@ -9,6 +13,7 @@
   $sql = "SELECT *, ROUND(AVG(rating)) AS average_rating, COUNT(*) AS review_count FROM ratings NATURAL JOIN restaurants WHERE restaurant_id = '$restaurantID'";
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($result);
+  $restaurantName = $row['name'];
   $banner = $row['banner'];
   $description = $row['description'];
   $address = $row['address'];
@@ -27,7 +32,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <link rel="icon" href="../images/FINAL LOGO CRAVE INS green 1.png" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/crave ins icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/restaurant.css">
     <link rel="stylesheet" href="../css/swiper-bundle.min.css">
@@ -55,7 +60,7 @@
             </div>
             <a href="../html/about.html.php">About</a>
             <a href="../html/favorites.html.php">Favorites</a>
-            <a href="../html/profile.html.php"><i class="fa fa-user"></i> Profile</a>
+            <a href="../html/myprofile.html.php"><i class="fa fa-user"></i> Profile</a>
         </div>
     </header>
     <div id="restaurant-banner">
@@ -65,7 +70,6 @@
         </a>
     </div>
     <div id="restaurant-restaurantInfo-container">
-        <!-- <img src="../images/Restaurant Page-background.png" alt="restaurant-bg" id="restaurant-bg"> -->
         <div id="restaurant-clickables">
             <a href="../html/menu.html.php">
                 <button id="restaurant-menuButton">Menu <i class="fa fa-list-alt"></i></button>
@@ -73,9 +77,22 @@
             <a href="../html/review.html.php">
                 <button id="restaurant-reviewButton"> Write a Review <i class="fa fa-commenting-o"></i></button>
             </a>
-            <a href="../html/favorites.html.php">
-                <button id="restaurant-followButton"> Follow <i class="fa fa-heart" aria-hidden="true"></i></button>
-            </a>
+            <form method="GET"><button type="submit" id="restaurant-followButton" name="follow"> Follow <i class="fa fa-heart" aria-hidden="true"></i></button></form>
+            <?php 
+              if(isset($_GET['follow'])){
+                $sql = "SELECT * FROM favorites WHERE email_address = '$email' AND restaurant_id = '$restaurantID'";
+                $result = mysqli_query($conn, $sql);
+                if(mysqli_num_rows($result) > 0){
+                  echo "<script>alert('You are already following this restaurant.')</script>";
+                  echo "<script>document.getElementById('restaurant-followButton').innerHTML = 'Followed';</script>";
+                } else {
+                  $sql = "INSERT INTO favorites (email_address, restaurant_id) VALUES ('$email', '$restaurantID')";
+                  $result = mysqli_query($conn, $sql);
+                  echo "<script>alert('You are now following this restaurant.');</script>";
+                  echo "<script>document.getElementById('restaurant-followButton').innerHTML = 'Followed';</script>";
+                }
+              }
+            ?>
         </div>
         <div id="restaurant-rating">
         </div>
@@ -166,120 +183,32 @@
         <h3 id="restaurant-title3">Featured Reviews</h3>
         <div id="restaurant-review-container">
         <?php 
-                        $restaurantID = $_SESSION['restaurantID'];
-                        $connect = mysqli_connect("localhost", "root", "", "craveins_db");
-                    
-                        // Modify the SQL query to include the search condition
-                        $sql = "SELECT *,name, lastname, profpic FROM ratings NATURAL JOIN users WHERE restaurant_id = '$restaurantID' LIMIT 4";
-                    
-                        $result = mysqli_query($connect, $sql);
-                    
-                        $json_array = array();
-                    
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                $json_array[] = $row;
-                            }
-                            $reviews = json_encode($json_array);
-                            echo "<script>
-                            postReview();
-                            function postReview() {
-                                const reviewListContainer = document.getElementById('restaurant-review-container');
-                                reviewListContainer.innerHTML = '';
-                                var data = JSON.parse('$reviews');
-                    
-                                data.forEach(function(element) {
-                                    const reviewInput = element.review;
-                                    const ratingData = element.rating;
-                                    const reviewerNameData = element.name + ' ' + element.lastname;
-                                    const reviewerPicData = element.profpic;
-                    
-                                    // create new review element
-                                    const newReview = document.createElement('div');
-                                    newReview.classList.add('review');
-                                
-                                    // create review content element
-                                    const reviewContent = document.createElement('div');
-                                    reviewContent.id = 'reviewContent';
-                                    reviewContent.textContent = reviewInput;
-                                
-                                    // create reviewer element
-                                    const reviewer = document.createElement('div');
-                                    reviewer.id = 'reviewer';
-                                
-                                    // create reviewer picture element
-                                    const reviewerPic = document.createElement('img');
-                                    reviewerPic.id = 'reviewerPic';
-                                    reviewerPic.src = reviewerPicData;
-                                    reviewerPic.alt = 'Reviewer Picture';
-                                    reviewerPic.width = '25px';
-                                
-                                    // create reviewer info element
-                                    const reviewerInfo = document.createElement('div');
-                                    reviewerInfo.id = 'reviewerInfo';
-                                
-                                    // create reviewer name element
-                                    const reviewerName = document.createElement('span'+'br');
-                                    reviewerName.id = 'reviewerName';
-                                    reviewerName.textContent = reviewerNameData;
-                                
-                                    // create line break element
-                                    const lineBreak = document.createElement('br');
-                    
-                                    // create rating element
-                                    const rating = document.createElement('span');
-                                    rating.id = 'rating';
-                                
-                                    // create checked stars
-                                    for (let i = 0; i < ratingData; i++) {
-                                    const star = document.createElement('span');
-                                    star.classList.add('fa', 'fa-star', 'checked');
-                                    rating.appendChild(star);
-                                    }
-                                
-                                    // create unchecked stars
-                                    for (let i = ratingData; i < 5; i++) {
-                                    const star = document.createElement('span');
-                                    star.classList.add('fa', 'fa-star');
-                                    rating.appendChild(star);
-                                    }
-                                
-                                    // append elements to reviewer info element
-                                    reviewerInfo.appendChild(reviewerName);
-                                    reviewerInfo.appendChild(lineBreak);
-                                    reviewerInfo.appendChild(rating);
-                                
-                                    // append elements to reviewer element
-                                    reviewer.appendChild(reviewerPic);
-                                    reviewer.appendChild(reviewerInfo);
-                                
-                                    // append elements to new review element
-                                    newReview.appendChild(reviewContent);
-                                    newReview.appendChild(reviewer);
-                                
-                                    // append new review to review list container
-                                    reviewListContainer.appendChild(newReview);
-                    
-                                    // Clear the review input
-                                    document.getElementById('reviewContent').value = '';
-                    
-                                    // Reset star rating
-                                    const starInputs = document.querySelectorAll('input[name=\'rate\']');
-                                    starInputs.forEach(input => {
-                                    input.checked = false;
-                                    });
-                                });
-                            }
-                            </script>";
-                        } else {
-                            echo '<script>console.log(array());</script>';
-                        }
-                    ?>
+          $restaurantID = $_SESSION['restaurantID'];
+          $connect = mysqli_connect("localhost", "root", "", "craveins_db");
+      
+          // Modify the SQL query to include the search condition
+          $sql = "SELECT *,name, lastname, profpic FROM ratings NATURAL JOIN users WHERE restaurant_id = '$restaurantID' ORDER BY RAND() LIMIT 4";
+      
+          $result = mysqli_query($connect, $sql);
+      
+          $json_array = array();
+      
+          if (mysqli_num_rows($result) > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                  $json_array[] = $row;
+              }
+              $reviews = json_encode($json_array);
+              echo "<script> var reviewInfo = " . json_encode($json_array) . ";</script>";
+          } else {
+              echo '<script>console.log(array());</script>';
+          }
+        ?>
         </div>
     </div>
 </body>
 <script src="../js/swiper-bundle.min.js"></script>
 <script src="../js/script.js"></script>
+<script src="../js/restaurant.js"></script>
 <script>
     const ratingData = <?php echo $rating; ?>
 
