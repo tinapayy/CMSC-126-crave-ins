@@ -41,7 +41,7 @@ function createCard(restaurant) {
     // Add a click event handler to the "See more" link
     seeMore.addEventListener('click', function() {
         // Save the restaurant name in a session variable
-        var restaurantID = id;
+        var restaurantID = restaurant.restaurant_id;
         
         // Send the restaurantName to the server using AJAX
         var xhr = new XMLHttpRequest();

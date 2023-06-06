@@ -32,26 +32,7 @@
 
 <body>
     <header>
-        <img id="logoName" class="logo" src="../images/crave_ins_logo_name_orange.png" alt="Crave Ins Logo">
-        <div class="navbar">
-            <a href="../home/home.html">Home</a>
-            <div class="dropdown">
-              <button class="dropbtn">Categories
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                <a href="#">Cafe</a>
-                <a href="#">Carinderia</a>
-                <a href="#">Restaurant</a>
-                <a href="#">Bakery</a>
-                <a href="#">Pizzeria</a>
-                <a href="#">Snack Haus</a>
-              </div>
-            </div>
-            <a href="../html/about.html.php">About</a>
-            <a href="../html/favorites.html.php">Favorites</a>
-            <a href="../html/myprofile.html.php"><i class="fa-solid fa-user"></i> Profile</a>
-        </div>
+        <?php include '../html/navbar.php' ?>
         <a href="../html/home.html.php"><button id="backButton"> << Back</button></a>
         
         <div class="profile-pic-container">
@@ -92,4 +73,11 @@
     
     <script src="../js/myprofile.js"></script>
     <script>document.getElementById("profile-name").innerHTML = "<?php echo $fname . ' '  . $lname; ?>";</script>
+    <script>
+        function searchByCategory(category) {
+            // Redirect to the results page with the selected category as a query parameter
+            window.location.href = "../html/results.html.php?category=" + encodeURIComponent(category);
+        }
+    </script>
 </body>
+</html>

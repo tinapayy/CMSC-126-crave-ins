@@ -35,26 +35,7 @@
 
 <body>
     <header>
-        <img id="logoName" class="logo" src="../images/crave ins logo name2.png" alt="Crave Ins Logo">
-        <div class="navbar">
-            <a href="home.html.php">Home</a>
-            <div class="dropdown">
-              <button class="dropbtn">Categories
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                <a href="#">Cafe</a>
-                <a href="#">Carinderia</a>
-                <a href="#">Restaurant</a>
-                <a href="#">Bakery</a>
-                <a href="#">Pizzeria</a>
-                <a href="#">Snack Haus</a>
-              </div>
-            </div>
-            <a href="../html/about.html.php">About</a>
-            <a href="../html/favorites.html.php">Favorites</a>
-            <a href="../html/myprofile.html.php"><i class="fa-solid fa-user"></i> Profile</a>
-        </div>
+    <?php include '../html/navbar.php' ?>
         <a href="home.html.php"><button id="backButton"> << Back</button></a>
         <a href="../html/login.html.php"><button id="logout-btn" name="logout">Log out</button></a>
         <div class="profile-pic-container">
@@ -94,7 +75,7 @@
         <div class="profile-container">
                 <span id="profile-title">My Profile</span><hr>
                 <p class="profile-sub" id="profile-subtitle1">Manage my personal information.</p>
-            <form action="../php/profile.php" method="POST">
+            <form action="../php/profile.php" method="POST" oninput="checkFormValues()">
                 <?php
                     include '../php/DBConnector.php';
                     $sql = "SELECT * FROM users WHERE email_address='$email'";
@@ -103,6 +84,8 @@
                     $fname = $row['name'];
                     $lname = $row['lastname'];
                     $phone = $row['phone_number'];
+                    $birthday = $row['birthdate'];
+                    $sex = $row['sex'];
                 ?>
                 <div class = "profile-form-inputs1">
                     <div class = "profile-input-box">
@@ -127,26 +110,59 @@
                     <div class="profile-input-box">
                         <div class="profile-date">
                             <label for="birthday">Date of Birth*</label><br>
-                            <span><input class="profile-input" type="date" id="birthday" name="birthday"></span>
+                            <span><input class="profile-input" type="date" id="birthday" name="birthday" value="<?php echo $birthday; ?>"></span>
                         </div>
                     </div>
                     <div class="profile-sex-container">
                         <label for="sex">Sex*</label><br>
                     <div class="profile-sex-choice">
                         <div class="profile-sex-choice1">
-                            <input type="radio" name="sex" value="Male" required="required">Male  &emsp;  &emsp;<br>
+                            <input type="radio" name="sex" value="Male" <?php if ($row['sex'] == 'Male') echo 'checked'; ?> required>Male  &emsp;  &emsp;<br>
                         </div>
                         <div class="profile-sex-choice2">
-                            <input type="radio" name="sex" value="Female">Female<br>
+                            <input type="radio" name="sex" value="Female" <?php if ($row['sex'] == 'Female') echo 'checked'; ?> required>Female<br>
                         </div>
                     </div>
                     </div>
                 <div class = "profile-update-btn">
-                    <button type="submit" id="update-btn" name="update" onclick="updateProfile()">Update</button><br>
+                    <button type="submit" id="update-btn" name="update" onclick="updateProfile()" disabled>Update</button><br>
                 </div>
             </div>
             </form>
 
     <script src="../js/myprofile.js"></script>
     <script>document.getElementById("profile-name").innerHTML = "<?php echo $fname . ' '  . $lname; ?>";</script>
+    <script>
+        // Store the initial form values
+        var initialFormValues = {
+            fname: "<?php echo $fname; ?>",
+            lname: "<?php echo $lname; ?>",
+            phone: "<?php echo $phone; ?>",
+            birthday: "<?php echo $birthday; ?>",
+            sex: "<?php echo $sex; ?>"
+        };
+
+        function checkFormValues() {
+            var updateButton = document.getElementById("update-btn");
+            var formValues = {
+                fname: document.getElementById("fname").value,
+                lname: document.getElementById("lname").value,
+                phone: document.getElementById("phone-num").value,
+                birthday: document.getElementById("birthday").value,
+                sex: document.querySelector('input[name="sex"]:checked').value
+            };
+
+            if (JSON.stringify(formValues) === JSON.stringify(initialFormValues)) {
+                updateButton.disabled = true;
+            } else {
+                updateButton.disabled = false;
+            }
+        }
+    </script>
+    <script>
+        function searchByCategory(category) {
+            // Redirect to the results page with the selected category as a query parameter
+            window.location.href = "../html/results.html.php?category=" + encodeURIComponent(category);
+        }
+    </script>
 </body>

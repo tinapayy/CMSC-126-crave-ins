@@ -22,26 +22,7 @@
 </head>
 
 <body>
-	<img id="logoName" class="logo" src="../images/crave_ins_logo_name_orange.png" alt="Crave Ins Logo">
-	<div class="navbar">
-		<a href="../html/home.html.php">Home</a>
-		<div class="dropdown">
-		  <button class="dropbtn">Categories 
-			<i class="fa fa-caret-down"></i>
-		  </button>
-		  <div class="dropdown-content">
-			<a href="../login-register-restaurant-review-results/Results Page/results.html">Cafe</a>
-			<a href="../login-register-restaurant-review-results/Results Page/results.html">Carinderia</a>
-			<a href="../login-register-restaurant-review-results/Results Page/results.html">Restaurant</a>
-			<a href="../login-register-restaurant-review-results/Results Page/results.html">Bakery</a>
-			<a href="../login-register-restaurant-review-results/Results Page/results.html">Pizzeria</a>
-			<a href="../login-register-restaurant-review-results/Results Page/results.html">Snack Haus</a>
-		  </div>
-		</div>
-		<a href="../about/about.html">About</a>
-		<a href="../favorites-followed-rated/favorites.html">Favorites</a>
-		<a href="../profile/myprofile.html"><i class="fa-solid fa-user"></i> Profile</a>
-	  </div>
+	<?php include '../html/navbar.php' ?>
 
 	  <form role="search" id="form">
 				<input type="search" id="query" name="q"
@@ -95,6 +76,11 @@
             </div> 
      </footer>
 	 <script src="../js/followed.js"></script>
-
+	 <script>
+		function searchByCategory(category) {
+			// Redirect to the results page with the selected category as a query parameter
+			window.location.href = "../html/results.html.php?category=" + encodeURIComponent(category);
+		}
+	</script>
 </body>
 </html>	

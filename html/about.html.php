@@ -13,26 +13,7 @@
 </head>
 <body>
 	<header>
-	<img id="logoName" class="logo" src="../images/crave_ins_logo_name_orange.png" alt="Crave Ins Logo">
-	<div class="navbar">
-		<a href="../html/home.html.php">Home</a>
-		<div class="dropdown">
-		  <button class="dropbtn">Categories
-			<i class="fa fa-caret-down"></i>
-		  </button>
-		  <div class="dropdown-content">
-			<a href="../login-register-restaurant-review-results/Results Page/results.html.php">Cafe</a>
-			<a href="../login-register-restaurant-review-results/Results Page/results.html.php">Carinderia</a>
-			<a href="../login-register-restaurant-review-results/Results Page/results.html.php">Restaurant</a>
-			<a href="../login-register-restaurant-review-results/Results Page/results.html.php">Bakery</a>
-			<a href="../login-register-restaurant-review-results/Results Page/results.html.php">Pizzeria</a>
-			<a href="../login-register-restaurant-review-results/Results Page/results.html.php">Snack Haus</a>
-		  </div>
-		</div>
-		<a id="for-footer" href="../html/about.html.php">About</a>
-		<a href="../favorites-followed-rated/favorites.html.php">Favorites</a>
-		<a href="../html/myprofile.html.php"><i class="fa-solid fa-user"></i> Profile</a>
-	  </div>
+	<?php include '../html/navbar.php' ?>
 
 	<div class="backBtn">
 		<a title="link" href="../html/home.html.php"><button id="backButton"> << Back</button></a>
@@ -117,3 +98,9 @@
 </body>
 
 </html>
+<script>
+	function searchByCategory(category) {
+		// Redirect to the results page with the selected category as a query parameter
+		window.location.href = "../html/results.html.php?category=" + encodeURIComponent(category);
+	}
+</script>

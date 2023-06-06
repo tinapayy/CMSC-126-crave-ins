@@ -12,26 +12,7 @@
     </head>
     <body>
         <header>
-            <img id="logoName" class="logo" src="../images/crave_ins_logo_name2.png" alt="Crave Ins Logo" width="200px">
-            <div class="navbar">
-                <a href="home.html.php">Home</a>
-                <div class="dropdown">
-                <button class="dropbtn">Categories
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#" id="dropdown-choice">Cafe</a>
-                    <a href="#" id="dropdown-choice">Carinderia</a>
-                    <a href="#" id="dropdown-choice">Restaurant</a>
-                    <a href="#" id="dropdown-choice">Bakery</a>
-                    <a href="#" id="dropdown-choice">Pizzeria</a>
-                    <a href="#" id="dropdown-choice">Snack Haus</a>
-                </div>
-                </div>
-                <a href="../html/about.html.php">About</a>
-                <a href="../html/favorites.html.php">Favorites</a>
-                <a href="../html/myprofile.html.php"><i class="fa fa-user"></i> Profile</a>
-            </div>
+        <?php include '../html/navbar.php' ?>
                 <a href="../html/home.html.php">
                     <button id="backButton" onclick="history.back()"> << Back</button>
                 </a>      
@@ -116,5 +97,10 @@
         </footer>
     </body>
     <script src="../js/results.js"></script>
-
+    <script>
+        function searchByCategory(category) {
+            // Redirect to the results page with the selected category as a query parameter
+            window.location.href = "../html/results.html.php?category=" + encodeURIComponent(category);
+        }
+    </script>
 </html>

@@ -19,12 +19,6 @@
   $address = $row['address'];
   $openingTime = $row['open_time'];
   $rating = $row['average_rating'];
-
-  $sql = "SELECT * FROM menu where restaurant_id = '$restaurantID'";
-  $result = mysqli_query($conn, $sql);
-  while($row = mysqli_fetch_assoc($result)){
-      $foodName = $row['food'];
-  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,28 +36,12 @@
 </head>
 <body>
     <header>
-        <img id="logoName" class="logo" src="../images/crave_ins_logo_name2.png" alt="Crave Ins Logo" width="200px">
-        <div class="navbar">
-            <a href="../html/home.html.php">Home</a>
-            <div class="dropdown">
-              <button class="dropbtn">Categories
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                  <a href="#" onclick="searchByCategory('Cafe')">Cafe</a>
-                  <a href="#" onclick="searchByCategory('Carinderia')">Carinderia</a>
-                  <a href="#" onclick="searchByCategory('Restaurant')">Restaurant</a>
-                  <a href="#" onclick="searchByCategory('Bakery')">Bakery</a>
-                  <a href="#" onclick="searchByCategory('Pizzeria')">Pizzeria</a>
-                  <a href="#" onclick="searchByCategory('Snack Haus')">Snack Haus</a>
-              </div>
-            </div>
-            <a href="../html/about.html.php">About</a>
-            <a href="../html/favorites.html.php">Favorites</a>
-            <a href="../html/myprofile.html.php"><i class="fa fa-user"></i> Profile</a>
-        </div>
+    <?php include '../html/navbar.php' ?>
     </header>
     <div id="restaurant-banner">
+        <h2 id="restaurant-title" style="position:absolute; font-size:4em; top:250px; left:50px; font-family: 'DM Sans', sans-serif; color: white; text-shadow: 0px 7px 4px rgba(0, 0, 0, 0.65);">
+          <?php echo $restaurantName; ?>
+        </h2>
         <img src="<?php echo $banner ?>" alt="banner" id="restaurant-banner">
         <a href="../html/home.html.php">
             <button id="restaurant-backButton"> << Back </button>
