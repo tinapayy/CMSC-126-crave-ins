@@ -7,7 +7,7 @@
     $sql = "SELECT restaurants.*, ROUND(AVG(ratings.rating)) AS average_rating, COUNT(ratings.review) AS total_reviews
     FROM ratings NATURAL JOIN restaurants
     GROUP BY restaurants.restaurant_id
-    HAVING ROUND(AVG(ratings.rating)) >= $searchQuery;";
+    HAVING ROUND(AVG(ratings.rating)) = $searchQuery;";
 
     
     $result = mysqli_query($connect, $sql);

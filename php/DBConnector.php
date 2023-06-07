@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "craveins";
+$dbname = "craveins_db";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
