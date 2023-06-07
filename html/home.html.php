@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Crave Ins</title>
 	<link rel="icon" type="image/png" sizes="32x32" href="../images/crave ins icon.png">
-	<link rel="stylesheet" type="text/css" href="../css/home.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="../css/swiper-bundle.min.css" />
   <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" href="../css/home.css">
+  <link rel="stylesheet" type="text/css" href="../css/navBar.css?">
+  <link rel="stylesheet" type="text/css" href="../css/landmark.css?">
   <script src="https://kit.fontawesome.com/51f7eec72a.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header>
-		<div w3-include-html="index.html"></div>
+  <header>
+  <div w3-include-html="index.html"></div>
 
   <?php include '../html/navbar.php' ?>
 
@@ -23,22 +25,28 @@
 		<h2 class="location"><i class="fa-sharp fa-solid fa-location-dot"></i> Miagao, Iloilo</h2>
     <!-- home.html.php -->
     <form action="../html/results.html.php" method="GET">
-      <input type="text" name="home-search" placeholder="Enter your search query">
-      <select name="landmark" style="margin-right:10px" placeholder="Select a Landmark">
-        <option value="" disabled="">---Select a landmark---</option>
-        <option value="">None</option>
-        <option value="UPV CFOS">UPV CFOS</option>
-				<option value="UPV New Admin">UPV New Admin</option>
-				<option value="UPV Covered Court">UPV Covered Court</option>
-				<option value="UPV CAS">UPV CAS</option>
-				<option value="UPV SOTECH">UPV SOTECH</option>
-				<option value="Hollywood Street">Hollywood Street</option>
-				<option value="Miagao Church">Miagao Church</option>
-				<option value="Baybay Sur">Baybay Sur</option>
-				<option value="Baybay Norte">Baybay Norte</option>
-        <!-- Add more landmark options if needed -->
+      <input type="text" name="home-search" placeholder="Enter your cravings..." autocomplete="off">
+    <div class ='center'>
+    <select class='custom-select landmark' id='landmark' name="landmark" style="margin-right:10px" placeholder="Select a Landmark">
+        <div class="forScroll">
+          <div class="dropdown-content2">
+            <option value="" disabled="">Select a Landmark</option>
+            <option value="">None</option>
+            <option value="UPV CFOS">UPV CFOS</option>
+            <option value="UPV New Admin">UPV New Admin</option>
+            <option value="UPV Covered Court">UPV Covered Court</option>
+            <option value="UPV CAS">UPV CAS</option>
+            <option value="UPV SOTECH">UPV SOTECH</option>
+            <option value="Hollywood Street">Hollywood Street</option>
+            <option value="Miagao Church">Miagao Church</option>
+            <option value="Baybay Sur">Baybay Sur</option>
+            <option value="Baybay Norte">Baybay Norte</option>
+        </div>    
+      </div>  
       </select>
-      <button type="submit" id="search-button"><i class="fa fa-search" style="color: green"></i></button>
+      </div>
+
+      <button type="submit" id="search-button"><i class="fa fa-search"></i></button>
     </form>
 	</div>
 	</header>
@@ -125,6 +133,8 @@
           window.location.href = "../html/results.html.php?tags=" + encodeURIComponent(tags);
       }
   </script>
+  <script src='../js/landmark.js'></script>
+
 </body>
 </html>
 
