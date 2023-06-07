@@ -150,3 +150,7 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #538601; 
   }
+
+  #landmark{
+    font-size: 50px;
+  }

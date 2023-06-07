@@ -10,6 +10,17 @@
   left: 5%;
   z-index: -1;
 }
+
+.container2 {
+  max-width: 1120px;
+  width: 100%;
+  padding: 40px 0;
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  z-index: -1;
+}
+
 .slide-container {
   margin: 0px 40px;  
   padding: 20px 10px;

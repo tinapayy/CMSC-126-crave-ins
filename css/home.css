@@ -25,6 +25,19 @@ body {
   color: white;
 }
 
+#home-no-profile {
+  position: absolute;
+  width: 874px;
+  height: 166px;
+  left: 171px;
+  top: 220px;
+
+  font-family: 'DM Sans';
+  font-weight: 700;
+  font-size: 80px;
+  color: white;
+}
+
 .fa-location-dot {
   color: #91972A;
 }
@@ -131,4 +144,9 @@ input {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #538601; 
+}
+
+a[href="home-no-profile.html.php"]{
+  background-color:#91972A; 
+  border-radius: 25px;
 }

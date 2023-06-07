@@ -36,7 +36,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <link rel="icon" type="image/png" sizes="32x32" href="../images/crave ins icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/restaurant.css">
     <link rel="stylesheet" href="../css/swiper-bundle.min.css">
     <script src="https://kit.fontawesome.com/51f7eec72a.js" crossorigin="anonymous"></script>
 
@@ -121,8 +121,8 @@
         <div class="swiper-pagination"></div>
       </div>
     </div>
-    <span id="restaurant-title2">Full Menu</span>
-    <div id="restaurant-details-container">
+    <div id="restaurant-details-container" style="color:white; overflow-y: scroll; overflow-x: hidden;">
+        <!-- <?php echo json_encode($menuData) ?> -->
     </div>
 </body>
 <script src="../js/swiper-bundle.min.js"></script>

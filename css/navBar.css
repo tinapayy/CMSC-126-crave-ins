@@ -39,6 +39,7 @@
     padding: 14px 20px;
     position: relative;
     top: 5px;
+    margin: 0px 2px;
   }
   
   
@@ -107,3 +108,25 @@
     display: block;
   }
   
+  a.whiteBtn{
+    background-color: #ffffff;
+    color: black;
+    margin: 0 5px;  
+    border-radius: 30px;
+  }
+
+  a.whiteBtn:hover{
+    color: rgb(255, 255, 255);
+
+  }
+
+  a[href="about.html.php"]{
+    background-color:#91972A; 
+    border-radius: 25px;
+  }
+  
+  a[href="about-no-profile.html.php"]{
+      background-color:#91972A; 
+      border-radius: 25px;
+    }
+

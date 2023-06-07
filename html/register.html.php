@@ -45,7 +45,7 @@
                     <h2 class="tagline-register">"A place that can satisfy your cravings"</h2>
                 </form>
 
-                <a href="home.html">
+                <a href="home-no-profile.html.php">
                     <button class="guest-register"><< Go back as Guest</button>
                 </a>
             </div> 

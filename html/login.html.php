@@ -51,7 +51,7 @@
                     <h2 class="tagline-login">"A place that can satisfy your cravings"</h2>
                 </form>
 
-                <a href="home.html.php">
+                <a href="home-no-profile.html.php">
                     <button class="guest-login"><< Go back as Guest</button>
                 </a>
             </div> 
