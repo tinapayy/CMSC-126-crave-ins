@@ -32,12 +32,17 @@ function updateProfile(){
 function updatePassword(){
     const newPassword = document.getElementById('new-password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
+    const old_password = document.getElementById('old-password').value;
     //if old newpassword = new password, alert password updated
-    if (newPassword == confirmPassword){
-        alert("Password Updated!");
-    }
-    else{
-        alert("Password does not match!");
+    if (old_password == auth_password){
+      if (newPassword == confirmPassword){
+          alert("Password Updated!");
+      }
+      else{
+          alert("Password does not match!");
+      }
+    } else{
+      alert("Old password is incorrect!");
     }
 }
 

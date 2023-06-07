@@ -13,7 +13,7 @@
         $menuData[] = $row;
     }
     echo "<script>var menuData = " . json_encode($menuData) . ";</script>";
-    // echo json_encode($menuData);
+    $picks = json_encode($menuData);
 
     $sql = "SELECT *, ROUND(AVG(rating)) AS average_rating, COUNT(*) AS review_count FROM ratings NATURAL JOIN restaurants WHERE restaurant_id = '$restaurantID'";
     $result = mysqli_query($conn, $sql);
@@ -24,6 +24,14 @@
     $address = $row['address'];
     $openingTime = $row['open_time'];
     $rating = $row['average_rating'];
+
+    $sql = "SELECT * FROM menu NATURAL JOIN menu_items WHERE restaurant_id = $restaurantID ORDER BY RAND() LIMIT 5";
+    $result = mysqli_query($conn, $sql);
+
+    $popPicks = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+      $popPicks[] = $row;
+    }
 
     $conn->close();
 ?>
@@ -36,7 +44,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <link rel="icon" type="image/png" sizes="32x32" href="../images/crave ins icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/restaurant.css">
+    <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/swiper-bundle.min.css">
     <script src="https://kit.fontawesome.com/51f7eec72a.js" crossorigin="anonymous"></script>
 
@@ -58,59 +66,54 @@
     <div class="container swiper">
         <span id="restaurant-title2">Popular Picks</span>
         <div class="slide-container">
-          <div class="card-wrapper swiper-wrapper">
+          <div class="card-wrapper swiper-wrapper" id="card-wrapper">
             <div class="card swiper-slide">
               <div class="image-box">
-                <img src="../images/showImg/healthy-foods.jpg" alt="" />
+                <img id="image1" src="<?php echo $popPicks[0]['image_path']?>" alt="" />
               </div>
               <div class="card-details">
                 <div class="name-more">
-                  <h3 class="name">Healthy <i class="fa-solid fa-leaf"></i></h3>
-                  <h4 class="more"><a href="home.html" class="moreLink">See more &ensp; <i class="fa-solid fa-arrow-right"></i></a></h4>
+                  <h3 class="name" id="pick1"><?php echo $popPicks[0]['name']?><i class="fa-solid fa-leaf"></i></h3>
                 </div>
               </div>
             </div>
             <div class="card swiper-slide">
               <div class="image-box">
-                <img src="../images/showImg/chicken.jpg" alt="" />
+                <img id="image2" src="<?php echo $popPicks[1]['image_path']?>" alt="" />
               </div>
               <div class="card-details">
                 <div class="name-more">
-                  <h3 class="name">Chicken <i class="fa-solid fa-drumstick-bite"></i></h3>
-                  <h4 class="more"><a href="results.html" class="moreLink">See more &ensp; <i class="fa-solid fa-arrow-right"></i></a></h4>
+                  <h3 class="name" id="pick2"><?php echo $popPicks[1]['name']?><i class="fa-solid fa-drumstick-bite"></i></h3>
                 </div>
               </div>
             </div>
             <div class="card swiper-slide">
               <div class="image-box">
-                <img src="../images/showImg/pizza.jpg" alt="" />
+                <img id="image3" src="<?php echo $popPicks[2]['image_path']?>" alt="" />
               </div>
               <div class="card-details">
                 <div class="name-more">
-                  <h3 class="name">Pizza <i class="fa-sharp fa-solid fa-pizza-slice"></i></h3>
-                  <h4 class="more"><a href="results.html" class="moreLink">See more &ensp; <i class="fa-solid fa-arrow-right"></i></a></h4>
+                  <h3 class="name" id="pick3"><?php echo $popPicks[2]['name']?><i class="fa-sharp fa-solid fa-pizza-slice"></i></h3>
                 </div>
               </div>
             </div>
             <div class="card swiper-slide">
               <div class="image-box">
-                <img src="../images/showImg/pasta.jpg" alt="" />
+                <img id="image4" src="<?php echo $popPicks[3]['image_path']?>" alt="" />
               </div>
               <div class="card-details">
                 <div class="name-more">
-                  <h3 class="name">Pasta <i class="fa-solid fa-bacon"></i></h3>
-                  <h4 class="more"><a href="results.html" class="moreLink">See more &ensp; <i class="fa-solid fa-arrow-right"></i></a></h4>
+                  <h3 class="name" id="pick4"><?php echo $popPicks[3]['name']?><i class="fa-solid fa-bacon"></i></h3>
                 </div>
               </div>
             </div>
             <div class="card swiper-slide">
               <div class="image-box">
-                <img src="../images/showImg/drinks.jpg" alt="" />
+                <img id="image5" src="<?php echo $popPicks[4]['image_path']?>" alt="" />
               </div>
               <div class="card-details">
                 <div class="name-more">
-                  <h3 class="name">Drinks <i class="fa-solid fa-mug-hot"></i></h3>
-                  <h4 class="more"><a href="results.html" class="moreLink">See more &ensp; <i class="fa-solid fa-arrow-right"></i></a></h4>
+                  <h3 class="name" id="pick5"><?php echo $popPicks[4]['name']?><i class="fa-solid fa-mug-hot"></i></h3>
                 </div>
               </div>
             </div>
@@ -121,8 +124,8 @@
         <div class="swiper-pagination"></div>
       </div>
     </div>
-    <div id="restaurant-details-container" style="color:white; overflow-y: scroll; overflow-x: hidden;">
-        <!-- <?php echo json_encode($menuData) ?> -->
+    <span id="restaurant-title2">Full Menu</span>
+    <div id="restaurant-details-container">
     </div>
 </body>
 <script src="../js/swiper-bundle.min.js"></script>

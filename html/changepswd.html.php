@@ -11,6 +11,8 @@
         $row = $result->fetch_assoc();
         $profpic = $row['profpic'];
         $password = $row['password'];
+        $fname = $row['name'];
+        $lname = $row['lastname'];
     } else {
         // User is not logged in
         header("Location: login.html.php");
@@ -53,7 +55,10 @@
                 <div class = "profile-form-inputs1">
                     <div class = "profile-input-box">
                         <label for="fname">Old Password*</label><br>
-                        <span><input class="profile-input" type="password" name="old-password" id="old-password" value="<?php echo $password ?>" required></span><br><br>
+                        <span><input class="profile-input" type="password" name="old-password" id="old-password" required></span><br><br>
+                        <script>
+                            var auth_password = "<?php echo $password; ?>";
+                        </script>
                     </div>
                     <div class="profile-input-box">
                         <label for="email">New Password*</label><br>

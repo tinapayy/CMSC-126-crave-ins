@@ -5,12 +5,10 @@
     
     // Modify the SQL query to include the search and rating filter conditions
     $sql = "SELECT restaurants.*, ROUND(AVG(ratings.rating)) AS average_rating, COUNT(ratings.review) AS total_reviews
-        FROM ratings NATURAL JOIN restaurants
-        WHERE (name LIKE '%$searchQuery%'
-            OR tags LIKE '%$searchQuery%'
-            OR category LIKE '%$searchQuery%'
-            OR landmark LIKE '%$searchQuery%')
-        GROUP BY restaurants.restaurant_id";
+    FROM ratings NATURAL JOIN restaurants
+    WHERE $searchQuery BETWEEN restaurants.start_price AND restaurants.last_price
+    GROUP BY restaurants.restaurant_id";
+
     
     $result = mysqli_query($connect, $sql);
 

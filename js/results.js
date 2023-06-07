@@ -4,11 +4,47 @@ window.onload = function() {
 function searchData() {
     event.preventDefault(); // Prevent form submission
     var searchQuery = document.getElementById('search-query').value;
-    var ratingFilter = document.querySelector('input[name="rate"]:checked');
-    var ratingValue = ratingFilter ? ratingFilter.value : ""; // Get the selected rating value
 
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '../php/search.php?query=' + encodeURIComponent(searchQuery) + '&rating=' + ratingValue, true);
+    xhr.open('GET', '../php/search.php?query=' + encodeURIComponent(searchQuery), true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+            displayData(data);
+        } else if (xhr.readyState === 4) {
+            console.log('Error: ' + xhr.status);
+        }
+    };
+    xhr.send();
+}
+
+function searchByPrice(price) {
+    document.getElementById('search-query').value = price;
+    event.preventDefault(); // Prevent form submission
+    var searchQuery = document.getElementById('search-query').value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '../php/searchPrice.php?query=' + encodeURIComponent(searchQuery), true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+            displayData(data);
+        } else if (xhr.readyState === 4) {
+            console.log('Error: ' + xhr.status);
+        }
+    }
+    xhr.send();
+}
+
+function searchByRating(rating) {
+    document.getElementById('search-query').value = rating;
+    event.preventDefault(); // Prevent form submission
+    var searchQuery = document.getElementById('search-query').value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '../php/searchRating.php?query=' + encodeURIComponent(searchQuery), true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -36,8 +72,8 @@ function displayData(data) {
         const openTime = element.open_time;
         const desc = element.description;
         const banner = element.banner;
-        const tags = element.tags;
-        const landmark = element.landmark;
+        const start_price = element.start_price;
+        const end_price = element.last_price;
         const category = element.category;
         const rating = element.average_rating;
         const reviewCount = element.total_reviews;
@@ -141,7 +177,7 @@ function displayData(data) {
     
         const price = document.createElement('span');
         price.setAttribute('id', 'price');
-        price.textContent = ' ₱58 - ₱100';
+        price.textContent = '₱' + start_price + ' - ₱' + end_price + '';
         detailsContainer3.appendChild(price);
     
         cardContainer.appendChild(detailsContainer3);
@@ -164,7 +200,7 @@ function displayData(data) {
     
         // Create the span element for the restaurant description
         const description = document.createElement('span');
-        location.setAttribute('id', 'desc');
+        description.setAttribute('id', 'desc');
         description.textContent = desc;
         detailsContainer5.appendChild(description);
     
