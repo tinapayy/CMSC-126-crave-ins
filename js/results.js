@@ -181,7 +181,7 @@ function displayData(data) {
     
         // Create the span element for the restaurant description
         const description = document.createElement('span');
-        location.setAttribute('id', 'desc');
+        description.setAttribute('id', 'desc');
         description.textContent = desc;
         detailsContainer5.appendChild(description);
     
