@@ -21,19 +21,22 @@
             <div id="filters-container">
                 <h3 id="filter-title">Filters <i class="fa fa-filter" aria-hidden="true"></i></h3>
                 <p id="filter-subtitle1">Price range</p>
-                <input type="range" min="0" max="500" value="50"  id="myRange">
-                <span id="slider-value"></span>
+                <div class="slider">
+                    <input id="slider-line" type="range" min="0" max="200" value="100" oninput="rangeValue.innerText = this.value">
+                    <button id="filter-button" onclick="searchByPrice(document.getElementById('slider-line').value)">Filter Price</button>
+                    <p id="rangeValue">100</p>
+                </div>
                 <p id="filter-subtitle2">Rating</p>
                 <div class="rate">
-                    <input type="radio" id="star5" name="rate" value="5" />
+                    <input type="radio" id="star5" name="rate" value="5" onclick="searchByRating('5')"/>
                     <label for="star5" title="text">5 stars</label>
-                    <input type="radio" id="star4" name="rate" value="4" />
+                    <input type="radio" id="star4" name="rate" value="4" onclick="searchByRating('4')"/>
                     <label for="star4" title="text">4 stars</label>
-                    <input type="radio" id="star3" name="rate" value="3" />
+                    <input type="radio" id="star3" name="rate" value="3" onclick="searchByRating('3')"/>
                     <label for="star3" title="text">3 stars</label>
-                    <input type="radio" id="star2" name="rate" value="2" />
+                    <input type="radio" id="star2" name="rate" value="2" onclick="searchByRating('2')"/>
                     <label for="star2" title="text">2 stars</label>
-                    <input type="radio" id="star1" name="rate" value="1" />
+                    <input type="radio" id="star1" name="rate" value="1" onclick="searchByRating('1')"/>
                     <label for="star1" title="text">1 star</label>
                 </div>
                 <hr>
@@ -53,13 +56,30 @@
             <div id="results-container"> 
                 <!-- create a search button with a heading text beside it -->
                 <div id="search-container">
-                    <span id="subtext">Highest Rated </span><br> <span id="query"></span>
+                    <span id="subtext">Results for </span><br> <span id="query"></span>
+                    <?php
+                    if(isset($_GET['home-search'])) {
+                        $query = $_GET['home-search'];
+                        $landmark = $_GET['landmark'];
+                        $query = $query . '' . $landmark;  
+                    } else if(isset($_GET['category'])){
+                        $query = $_GET['category'];
+                    }  else if(isset($_GET['tags'])){
+                        $query = $_GET['tags'];
+                    } else if(isset($_GET['rating'])) {
+                        $query = $_GET['rating'];
+                    } else if(isset($_GET['price'])) {
+                        $query = $_GET['price'];
+                    } else {
+                        $query = "";
+                    }
+                    ?>
                     <form id="search-form" onsubmit="searchData(event)">
-                        <input type="text" id="search-query" name="search" placeholder="Search">
+                        <input type="text" id="search-query" name="search" placeholder="Search" value="<?php echo $query ?>">
                         <button type="submit" id="search-button"><i class="fa fa-search"></i></button>
                     </form>
 
-                </div>  
+                </div>   
                 <div id="results"></div>    
             </div>    
         </main>
