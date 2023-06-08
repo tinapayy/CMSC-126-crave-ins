@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body{
+    height: 100%;
+}
+
+
+body{
+    overflow-x: hidden;
+    background-image: url(../images/Restaurant\ Page-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-height: 1250px;
+}
+
+
+.checked { 
+    color: #FFAE43;
+    margin: 4px;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #613002;
+    display: flex;
+    justify-content: right;
+    box-shadow: 0px 12px 9px -1px rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    margin-left: -13px;
+    width: 100%;
+}
+
+a[href="../html/menu.html.php"],
+a[href="../html/review.html.php"] {
+    height: 10px;
+}
+
+/* Links inside the navbar */
+.navbar a {
+    float: right;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: "DM Sans", sans-serif;
+    padding: 14px 20px;
+}
+
+/* The dropdown container */
+.dropdown {
+    overflow:hidden;
+    float: right;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+    width: 150px;
+    padding: 4px 0px;
+    margin-right: 15px;
+    margin-left: 15px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    background-color: inherit;
+    font-family:  "DM Sans", sans-serif; 
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #91972A;
+    border-radius: 25px;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    color: rgb(237, 117, 4);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "DM Sans", sans-serif;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#logoName {
+    position: absolute;
+    top: -41px;
+    z-index: 5;
+    width: 250px;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    margin-right: 30px;  
+}
+
+#restaurant-banner,#restaurant-restaurantInfo-container{
+    width: 100%;
+}
+
+#restaurant-banner > *{
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+}
+
+#restaurant-restaurantInfo-container {
+    margin-top: -4px;
+}
+
+#restaurant-restaurantInfo-container, #restaurant-restaurantInfo-container > *{
+    position: absolute;
+    width: 100%;
+    height: 1250px;
+    object-fit: cover;
+}
+
+button {
+    border-radius: 30px;
+    height: 41px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 31px;
+    text-align: center;
+    color: white;
+}
+
+#restaurant-backButton{
+    position: absolute;
+    left: 1750px;
+    top: 105px;
+    width: 118px;
+    background: #0F2C0A;
+    border-radius: 30px;
+}
+
+#restaurant-followButton{
+    width: 90px;
+    padding: 0 10px;
+    margin-left: -20px;
+}
+
+#restaurant-backButton:hover {
+background-color: #F9F9F9;
+color:#0F2C0A;
+font-weight: 600;
+}
+
+#restaurant-menuButton, #restaurant-reviewButton, #restaurant-followButton{
+    background: #7D8320;
+    margin-top: 20px;
+}
+
+a{
+    text-decoration: none;
+ 
+}
+
+#restaurant-clickables{
+    display: flex;
+    width: 402px;
+    left: 150px;
+}
+
+#restaurant-menuButton{
+    width: 117px;
+    margin-left: 50px;
+    float: left;
+}
+
+#restaurant-reviewButton{
+    width: 195px;
+    margin-left: -20px;
+}
+
+#restaurant-rating {
+    font-size: 65px;
+    position: relative;
+    letter-spacing: -5px;
+    left: 680px;
+    top: 20px;
+    width: 400px;
+    height: 60px;
+}
+
+#restaurant-abt{
+    position: relative;
+    top: 40px;
+    left: 200px;
+    font-family: "DM Sans", sans-serif;
+    color: white;
+    width: 900px;
+    height: 150px;
+}
+
+#restaurant-abt-title, #restaurant-title2, #restaurant-title3{
+    font-size: 36px;
+    font-weight: 700;
+    text-shadow: 0px 7px 4px rgba(0, 0, 0, 0.65);
+}
+
+#restaurant-title2, #restaurant-title3{
+    font-family: "DM Sans", sans-serif;
+    color: white;
+    text-shadow: 0px 7px 4px rgba(0, 0, 0, 0.65);
+}
+
+#restaurant-abt-content{
+    position: relative;
+    font-size: 23px;
+    font-weight: 500;
+    margin-top: 10px;
+    top: 15px;
+    width: 790px;
+    max-height: 200px;
+    text-align: justify;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    padding: 40px 0;
+    position: relative;
+    top: 30%;
+    left: -16%;
+    z-index: -1;
+    margin-bottom: -5px;
+}
+
+.slide-container {
+    margin: 0px 40px;  
+    padding: 20px 10px;
+    overflow: hidden;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 5px 5px 8px black;
+}
+
+.card:hover{
+    background: #ffebb0;
+    transition: 0.4s;
+}
+
+.card .image-box {
+    height: 150px;
+}
+
+.card .image-box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px 8px 0 0;
+    object-fit: cover;
+}
+
+.card .card-details {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    padding: 15px;
+}
+
+.card-details .name {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #91972A;
+    margin: 0;
+}
+
+.card-details .more {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+    color: #4d4d4d;
+}
+
+.card-details .moreLink{
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+    text-decoration-line: none;
+}
+
+.card-details .moreLink:hover{
+    color: #3b9b00;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.card-details .fa-solid{
+    color:#91972A;
+}
+
+.swiper-navBtn {
+    color: #ffffff;
+    height: 40px;
+    width: 40px;
+    background: #FFAB2D;
+    border-radius: 50%;
+    position: absolute;
+    margin-right: -8px;
+    margin-left: -8px;
+    box-shadow: 1px 2px 5px black;
+    z-index: 10;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.swiper-pagination-bullet {
+    background-color: #ffffff;
+}
+
+.swiper-pagination {
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 768px) {
+.swiper-navBtn {
+    display: none;
+}
+}
+
+#restaurant-details-container{
+    position: absolute;
+    width: 467px;
+    height: 544px;
+    left: 1150px;
+    top: 365px;
+    
+    background: rgba(31, 15, 1, 0.8);
+    box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.62);
+    border-radius: 61px;
+}
+#address, #features, #openingHours{
+    position: relative; 
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    color: #FE9C03;
+}
+
+#address{
+    top: 20px;
+    left: 20px;
+}
+
+#features{
+    top: 60px;
+    left: 20px;
+}
+
+#openingHours{
+    top: 100px;
+    left: 20px;
+}
+
+.restaurant-details{
+    position: relative;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+    left: 20px;
+    color: #FFFFFF;
+}
+
+#restaurant-address{
+    display: inline-block;
+    max-width: 400px;
+    top: 20px;
+}
+
+#restaurant-features{
+    top: 60px;
+}
+
+#restaurant-opening{
+    display: inline-block;
+    max-width: 450px;
+    top: 100px;
+}
+
+#restaurant-featuredReviews{
+    position: relative;
+    top:1%;
+    left: 8%;
+    margin-top: 270px;
+    margin-left: 50px;
+}
+
+.review{
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+
+    letter-spacing: -0.1px;
+
+    color: #F9F9F9;
+
+    width: 880px;
+    height: 120px;
+    background: rgba(145, 151, 42, 0.78);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.53);
+    border-radius: 31px;
+}
+
+#reviewer{
+    position: relative;
+    margin-top: 10px;
+}
+
+#reviewContent {
+    word-break: break-all;
+    padding-top: 20px;
+    font-weight: 600;
+    margin-left: 70px;
+}
+
+#reviewerPic {
+    border-radius: 20px;
+    width: 40px;
+    float: left;
+    margin-left: 20px;
+}
+
+#rating{
+    position: relative;
+    top: -5px;
+}
+
+#reviewerInfo{
+    position: relative;
+    left: 10px;
+}
+
+
+
+
+
