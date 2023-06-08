@@ -10,6 +10,7 @@ body {
   background: #341B03;
   overflow: hidden;
 }
+
 #logoName{
   width: 500px;
 }
@@ -56,7 +57,6 @@ img[src="images/FINAL LOGO CRAVE INS green 1.png"] {
   float: left;
   top: -55px;
 }
-
 
 h2.welcome, h2.join-us {
   position: relative;
@@ -148,9 +148,9 @@ button.guest-register {
 
 button.guest-login:hover,
 button.guest-register:hover {
-background-color: white;
-color: #0F2C0A;
-font-weight: 600;
+  background-color: white;
+  color: #0F2C0A;
+  font-weight: 600;
 
 }
 
@@ -267,4 +267,3 @@ a[id="forgot-password"] {
   left:70px;
   color: #91972A;;
 }
-

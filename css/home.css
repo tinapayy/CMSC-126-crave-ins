@@ -6,10 +6,10 @@
 }
 
 body {
-    background-image: url("../images/Home - Background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
+  background-image: url("../images/Home - Background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
 }
 
 .mainTitle {

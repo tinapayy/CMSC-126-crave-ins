@@ -1,16 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body{
     width: 100%;
-
     overflow-x: hidden;
 }
+
 .checked { color: gold;}
-*{
-margin: 0;
-padding: 0;
-    }
+
 .rate {
     position: absolute;
     left: 324px;
@@ -29,16 +31,20 @@ padding: 0;
     font-size:70px;
     color:#ccc;
 }
+
 .rate:not(:checked) > label:before {
     content: '★ ';
 }
+
 .rate > input:checked ~ label {
     color: #ffc700;    
 }
+
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
     color: #deb217;  
 }
+
 .rate > input:checked + label:hover,
 .rate > input:checked + label:hover ~ label,
 .rate > input:checked ~ label:hover,
@@ -128,12 +134,14 @@ padding: 0;
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 #logoName {
     position: absolute;
     top: -41px;
     z-index: 5;
     width: 250px;
 }
+
 button {
     all: unset;
     cursor: pointer;
@@ -142,6 +150,7 @@ button {
     margin-right: 30px;
     
 }
+
 main{
     background-image: url(../images/User\ Review_background.png);
     background-repeat: no-repeat;
@@ -149,6 +158,7 @@ main{
     height: 1200px;
     background-position-y: -100px;
 }
+
 #title{
     /* Nabi’s Kitchen */
     position: relative;
@@ -165,6 +175,7 @@ main{
 
     color: #FFC569;
 }
+
 #reviewList-container{
     overflow-x: hidden;
     justify-content: center;
@@ -195,6 +206,7 @@ main{
 
     color: #F9F9F9;
 }
+
 #main-title{
     display: block;
     text-align: center;
@@ -205,6 +217,7 @@ main{
     justify-content: center;
     color: white;
 }
+
 .sub-title{
     position: absolute;
     text-align: center;
@@ -216,6 +229,7 @@ main{
 
     color: gray;
 }
+
 .select{
     position: absolute;
     top: 100px;
@@ -225,6 +239,7 @@ main{
     font-size: 18px;
     color: gray;
 }
+
 .footer{
     display: flex;
     flex-direction: column;
@@ -239,6 +254,7 @@ main{
     background: #0F2C0A;
     box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.55);
 }
+
 #reviewForm{
     position: absolute;
     width: 750px;
@@ -250,6 +266,7 @@ main{
     box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.62);
     border-radius: 61px;
 } 
+
 textarea{
     position: relative;
     display: block;
@@ -266,6 +283,7 @@ textarea{
     font-size: 15px;
     line-height: 52px;
 }
+
 .postReview{
     position: relative;
     width: 186px;
@@ -284,6 +302,7 @@ textarea{
     text-align: center;
     color: #FFFFFF;
 }
+
 #backButton{
     position: absolute;
     width: 138px;
@@ -302,6 +321,7 @@ textarea{
     text-align: center;
     color: #256A19;
 }
+
 .review{
     display: block;
     margin-top: 70px;
@@ -317,53 +337,59 @@ textarea{
 
     color: #F9F9F9;
 }
+
 #reviewer{
     position: relative;
     margin-top: 10px;
 }
+
 #reviewContent {
     word-break: break-all;
 }
+
 #reviewerPic {
     border-radius: 20px;
     width: 40px;
     float: left;
 }
+
 #rating{
     position: relative;
     top: -5px;
 }
+
 #reviewerInfo{
     position: relative;
     left: 10px;
 }
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
-  }
-  #reviewList-container::-webkit-scrollbar {
+}
+#reviewList-container::-webkit-scrollbar {
     height: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px grey; 
     border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: rgb(234, 144, 0); 
     border-radius: 10px;
-  
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #538601; 
-  }
 
-  footer{
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #538601; 
+}
+
+footer{
     width: 100%;
     height: 200px;
     position:absolute;
@@ -375,30 +401,30 @@ textarea{
     color: white;
     padding-top: 30px;
 
-  }
-  
-  .tagline{
-      position:absolute;
-      left: 200px;
-      display: relative;
-      align-items: center;
-      font-size:30px;
-      color:white;
-  }
-  
-  .crave{
+}
+
+.tagline{
+    position:absolute;
+    left: 200px;
+    display: relative;
+    align-items: center;
+    font-size:30px;
+    color:white;
+}
+
+.crave{
     font-weight: bold;
     color:white;
     font-style: italic;
-  }
-  
-  .footbar{
+}
+
+.footbar{
     position:relative;
     top: 130px;
     left: 200px;
-  }
-  
-  .footbar a{
+}
+
+.footbar a{
 
     font-size:12px;
     text-decoration: none;
@@ -409,21 +435,23 @@ textarea{
     font-size: 14px;
     line-height: 20px;
     color: #A5ACBA;
-  }
+}
 
-  .HOME{
+.HOME{
     position: absolute;
     left: 0px;
-  }
-  .ABOUT{
+}
+
+.ABOUT{
     position: absolute;
     left: 100px;
-  }
-  .CONTACT{
+}
+.CONTACT{
     position: absolute;
     left: 200px;
-  }
-  .footer-details, .copyright{
+}
+
+.footer-details, .copyright{
     position: absolute;
     font-family: 'Inter';
     font-style: normal;
@@ -432,13 +460,13 @@ textarea{
     line-height: 20px;
     color: #A5ACBA;
     right: 200px;
-  }
-  
-  .copyright{
-    top: 180px;
-  }
+}
 
-  hr{
+.copyright{
+    top: 180px;
+}
+
+hr{
     position: relative;
     display: block;
     width: 77%;
@@ -446,6 +474,6 @@ textarea{
     margin-right: auto;
     top: 100px;
     opacity: 30%;
-  }
+}
 
 

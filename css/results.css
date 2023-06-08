@@ -19,10 +19,12 @@ body{
     left: 50px;
     top: 260px;
 }
+
 .rate:not(:checked) > input {
     position:absolute;
     top:-9999px;
 }
+
 .rate:not(:checked) > label {
     float:right;
     width:1em;
@@ -32,16 +34,20 @@ body{
     font-size:70px;
     color:#ccc;
 }
+
 .rate:not(:checked) > label:before {
     content: '★ ';
 }
+
 .rate > input:checked ~ label {
     color: #ffc700;    
 }
+
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
     color: #deb217;  
 }
+
 .rate > input:checked + label:hover,
 .rate > input:checked + label:hover ~ label,
 .rate > input:checked ~ label:hover,
@@ -49,10 +55,12 @@ body{
 .rate > label:hover ~ input:checked ~ label {
     color: #c59b08;
 }
+
 .fa-map-marker {
     font-size: smaller;
     word-spacing: 20%;
 }
+
 .navbar {
     overflow: hidden;
     background-color: #613002;
@@ -169,6 +177,7 @@ main{
     background: #0F2C0A;
     box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.55);
 }
+
 #filters-container, #results-container{
     position: absolute;
     top: 200px;
@@ -176,12 +185,14 @@ main{
     box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.62);
     border-radius: 61px;
 } 
+
 #filters-container{
     float: left;
     width: 500px;
     height: 700px;
     left: 250px;
 }
+
 #results-container{
     float: right;
     width: 830px;
@@ -231,6 +242,7 @@ main{
     text-align: center;
     color: #256A19;
 }
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -388,6 +400,7 @@ main{
 
     margin-right: 40px;
   }
+
 #restaurant-rating{
     font-family: 'Inter';
     font-style: normal;
@@ -399,6 +412,7 @@ main{
 
     color: #272D37;
 }
+
 #restaurant-type, #restaurant-rating, #restaurant-review-count{
     display: flex;
     flex-direction: row;
@@ -430,6 +444,7 @@ main{
     background: rgba(145, 151, 42, 0.5);
     border-radius: 12px;
 }
+
 .see-more{
     font-family: 'Inter';
     font-style: normal;
@@ -441,6 +456,7 @@ main{
     margin-left: 40px;
     color: #256A19;
 }
+
 #status, #time, #price-range, #price, #location{
     font-family: 'Inter', 'DM Sans';
     font-style: normal;
@@ -455,21 +471,26 @@ main{
 
     color: #5F6D7E;
 }
+
 #location{
     font-family: 'Inter', 'DM Sans';
     color: #256A19;
 }
+
 #time, #price{
     margin-left: 50px;
     font-weight: 800;
 }
+
 #location{
     font-style: italic;
 }
+
 #description{
     color: #7D8320;
     font-size: 13px;
 }
+
 #subtext, #query{
     position: relative;;
     top: 40px;
@@ -482,9 +503,11 @@ main{
 
     color: #FFC569;
 }
+
 #query{
     margin-top: 20px;
 }
+
 #search-query{
     position: absolute;
     align-items: center;
@@ -519,6 +542,7 @@ main{
 
     color: #919BA7;
 }
+
 #search-button{
     position: absolute;
     top: 55px;
@@ -527,6 +551,7 @@ main{
     height: 18px;
     color: #919BA7;
 }
+
 #filter-title{
     position: absolute;
     width: 305px;
@@ -542,6 +567,7 @@ main{
 
     color: #FFC569;
 }
+
 #filter-subtitle1, #filter-subtitle2{
     position: absolute;
     left: 80px;
@@ -558,17 +584,21 @@ main{
 
     color: #FFFFFF;
 }
+
 #filter-subtitle1{
     top: 120px;
 }
+
 #filter-subtitle2{
     top: 250px;
 }
+
 #filter-links{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
+
 .filter-button{
     position: relative;
     margin-top: 20px;
@@ -578,6 +608,7 @@ main{
     top: 400px;
     background: rgba(217, 217, 217, 0.3);
 }
+
 #filter-links > a{
     font-family: 'Inter';
     font-style: italic;
@@ -596,6 +627,7 @@ main{
 .filter-button:hover{
     background-color: #91972A;
 }
+
 #slider-value {
     display: inline-block;
     font-size: 18px;
@@ -612,41 +644,45 @@ main{
     border: 2px solid black;
     background-color: white;
 }
+
 #slider {
     position: absolute;
     width: 380px;
     top: 490px;
     left: 60px;
 }
+
 #rangeValue {
-color:white;
-font-family: 'Inter';
-font-weight: bold;
-position: absolute;
-top: 205px;
-left: 100px;
+    color:white;
+    font-family: 'Inter';
+    font-weight: bold;
+    position: absolute;
+    top: 205px;
+    left: 100px;
 }
+
 #slider-line {
-width: 60%;
-position: absolute;
-top: 180px;
-left: 100px;
+    width: 60%;
+    position: absolute;
+    top: 180px;
+    left: 100px;
 }
+
 #filter-button {
-border-radius: 10px;
-text-align: center;
-font-family: 'Inter';
-width: 130px;
-background-color: white;
-font-weight: bold;
-color: green;
-position: absolute;
-top: 110px;
-left: 190px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Inter';
+    width: 130px;
+    background-color: white;
+    font-weight: bold;
+    color: green;
+    position: absolute;
+    top: 110px;
+    left: 190px;
 }
 #filter-button:hover {
-background-color: #91972A;
-color:white;
+    background-color: #91972A;
+    color:white;
 }
 
 #desc{

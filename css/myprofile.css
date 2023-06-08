@@ -215,7 +215,6 @@ input[type="date"]{
     position: absolute;
     justify-content: center;
     display: none;
-
 }
 
 .profile-pic {
@@ -303,8 +302,6 @@ span {
 .profile-navv:hover{
     color: #E2EC37;
 }
-
-
 
 #change-pswd-btn{
     margin-top: -30px;

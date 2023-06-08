@@ -9,8 +9,8 @@
 }
 
 #home_background {
-position:relative;
-width: 100%;
+	position:relative;
+	width: 100%;
 }
 
 body {
@@ -105,64 +105,50 @@ a[title]{
 	padding:20px 40px 20px 800px;
 	border-top-right-radius:20px; 
 	border-bottom-right-radius:20px;
-  font-family: "DM Sans", sans-serif;
-  margin-left: -20px;
+	font-family: "DM Sans", sans-serif;
+	margin-left: -20px;
 }
 
 .imgcirunay{
-  position: relative;
-  top:30px;
-  left:150px;
-  width:255px;
-  height: 255px;
-  z-index: 2;
-  border: 5px solid #91972A;
-  border-radius:50%;
-  object-fit: cover;
-  box-shadow: 2px 3px 10px black;
+	position: relative;
+	top:30px;
+	left:150px;
+	width:255px;
+	height: 255px;
+	z-index: 2;
+	border: 5px solid #91972A;
+	border-radius:50%;
+	object-fit: cover;
+	box-shadow: 2px 3px 10px black;
 }
 
 .imgcelis{
-  position:relative;
-  top:380px;
-  left: -180px;
-  width:320px;
-  height:320px;
-  z-index: 2;
-  border: 5px solid #91972A;
-  border-radius:50%;
-  object-fit: cover;
-  box-shadow: 2px 3px 10px black;
+	position:relative;
+	top:380px;
+	left: -180px;
+	width:320px;
+	height:320px;
+	z-index: 2;
+	border: 5px solid #91972A;
+	border-radius:50%;
+	object-fit: cover;
+	box-shadow: 2px 3px 10px black;
 
 }	
 
 .imgamodia{
-  position:relative;
-  top:200px;
-  left:-180px;
-  width:329px;
-  height:329px;
-  z-index: 2;
-  border: 5px solid #91972A;
-  border-radius:50%;
-  object-fit: cover;
-  box-shadow: 2px 3px 10px black;
+	position:relative;
+	top:200px;
+	left:-180px;
+	width:329px;
+	height:329px;
+	z-index: 2;
+	border: 5px solid #91972A;
+	border-radius:50%;
+	object-fit: cover;
+	box-shadow: 2px 3px 10px black;
 
 }	
-
-/* .FAQS-container{
-	display: flex;
-	float: right;
-	width: 500px;
-	height: 20px;
-	padding: 10px 300px 10px 40px;
-	margin-right: -150px;
-	margin-top: 100px;
-	align-items: right;
-	background-color: #7D8320;
-	border-bottom-left-radius: 30px;
-	border-top-left-radius: 30px;
-} */
 
 .FAQS{
 	position:relative;

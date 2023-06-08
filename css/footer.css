@@ -16,12 +16,12 @@ footer{
 }
 
 .tagline{
-    position:absolute;
-    left: 200px;
-    display: relative;
-    align-items: center;
-    font-size:30px;
-    color:white;
+  position:absolute;
+  left: 200px;
+  display: relative;
+  align-items: center;
+  font-size:30px;
+  color:white;
 }
 
 .crave{
