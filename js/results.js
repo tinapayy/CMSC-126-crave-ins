@@ -4,9 +4,20 @@ window.onload = function() {
 function searchData() {
     event.preventDefault(); // Prevent form submission
     var searchQuery = document.getElementById('search-query').value;
+    const inputString = searchQuery;
+
+    // Split the string by the space character
+    const [firstPart, ...remainingParts] = inputString.split(' ');
+
+    // Join the remaining parts back into a single string
+    const secondPart = remainingParts.join(' ');
+
+    console.log(firstPart); // Output: pizza
+    console.log(secondPart); // Output: UPV New Admin
+
 
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '../php/search.php?query=' + encodeURIComponent(searchQuery), true);
+    xhr.open('GET', '../php/search.php?query=' + encodeURIComponent(firstPart) + '&landmark=' + encodeURIComponent(secondPart), true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
